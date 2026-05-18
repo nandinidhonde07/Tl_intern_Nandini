@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nandini Dhonde Portfolio</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#f5f7fb;
+            color:#111827;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* NAVBAR */
+
+        nav{
+            width:100%;
+            padding:20px 8%;
+            background:#05051f;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:15px;
+            color:white;
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .logo-circle{
+            width:55px;
+            height:55px;
+            border-radius:50%;
+            background:#7c3aed;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        nav ul{
+            display:flex;
+            gap:35px;
+            list-style:none;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#a855f7;
+        }
+
+        /* HERO SECTION */
+
+        .hero{
+            min-height:80vh;
+            background:
+            linear-gradient(rgba(4,4,30,0.92),
+            rgba(10,10,40,0.95)),
+            url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:80px 8%;
+            color:white;
+            gap:40px;
+            flex-wrap:wrap;
+        }
+
+        .hero-text{
+            max-width:520px;
+        }
+
+        .tag{
+            display:inline-block;
+            background:#32135f;
+            padding:10px 18px;
+            border-radius:30px;
+            margin-bottom:25px;
+            color:#d8b4fe;
+            font-size:15px;
+        }
+
+        .hero h1{
+            font-size:75px;
+            margin-bottom:15px;
+            line-height:1.1;
+        }
+
+        .hero span{
+            color:#a855f7;
+        }
+
+        .hero h3{
+            font-size:30px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            font-size:20px;
+            line-height:1.8;
+            color:#d1d5db;
+            margin-bottom:35px;
+        }
+
+        .buttons{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:16px 32px;
+            border-radius:12px;
+            text-decoration:none;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .btn-primary{
+            background:#7c3aed;
+            color:white;
+        }
+
+        .btn-primary:hover{
+            background:#6d28d9;
+            transform:translateY(-3px);
+        }
+
+        .btn-secondary{
+            border:2px solid white;
+            color:white;
+        }
+
+        .btn-secondary:hover{
+            background:white;
+            color:#111827;
+        }
+
+        /* PROFILE IMAGE */
+
+        .hero-image{
+            margin-top:0;
+        }
+
+        .hero-image img{
+            width:210px;
+            height:210px;
+            border-radius:50%;
+            object-fit:cover;
+            border:6px solid white;
+            box-shadow:0 12px 30px rgba(0,0,0,0.18);
+        }
+
+        /* SECTIONS */
+
+        section{
+            padding:80px 8%;
+        }
+
+        .section-title{
+            text-align:center;
+            font-size:45px;
+            margin-bottom:50px;
+            color:#111827;
+        }
+
+        /* CARDS */
+
+        .info-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+            gap:30px;
+        }
+
+        .info-card{
+            background:white;
+            padding:35px;
+            border-radius:20px;
+            box-shadow:0px 5px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .info-card:hover{
+            transform:translateY(-8px);
+        }
+
+        .info-card i{
+            font-size:40px;
+            color:#7c3aed;
+            margin-bottom:20px;
+        }
+
+        .info-card h2{
+            margin-bottom:18px;
+            font-size:30px;
+        }
+
+        .info-card p,
+        .info-card li{
+            font-size:18px;
+            line-height:1.8;
+            color:#4b5563;
+        }
+
+        /* PROJECTS */
+
+        .projects{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:35px;
+        }
+
+        .project-card{
+            background:white;
+            border-radius:20px;
+            padding:30px;
+            box-shadow:0px 5px 20px rgba(0,0,0,0.08);
+            transition:0.4s;
+            position:relative;
+        }
+
+        .project-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0px 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .project-icon{
+            width:70px;
+            height:70px;
+            border-radius:50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+            margin-bottom:25px;
+            color:white;
+        }
+
+        .green{
+            background:#22c55e;
+        }
+
+        .blue{
+            background:#3b82f6;
+        }
+
+        .purple{
+            background:#a855f7;
+        }
+
+        .orange{
+            background:#f59e0b;
+        }
+
+        .pink{
+            background:#ec4899;
+        }
+
+        .leaf{
+            background:#16a34a;
+        }
+
+        .project-card h3{
+            font-size:30px;
+            margin-bottom:15px;
+        }
+
+        .project-card p{
+            color:#4b5563;
+            font-size:18px;
+            line-height:1.7;
+            margin-bottom:25px;
+        }
+
+        .tags{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+        }
+
+        .tags span{
+            padding:8px 15px;
+            border-radius:20px;
+            background:#ede9fe;
+            color:#6d28d9;
+            font-size:14px;
+            font-weight:bold;
+        }
+
+        .contact{
+            background:#ffffff;
+            padding:60px 36px;
+            border-radius:24px;
+            box-shadow:0 18px 45px rgba(15,23,42,0.10);
+            max-width:1080px;
+            margin:0 auto;
+        }
+
+        .contact h2{
+            font-size:42px;
+            margin-bottom:16px;
+            color:#111827;
+        }
+
+        .contact p{
+            max-width:720px;
+            margin:0 auto 30px;
+            color:#475569;
+            font-size:18px;
+            line-height:1.8;
+        }
+
+        .contact-links{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:22px;
+        }
+
+        .contact-links a{
+            display:flex;
+            align-items:center;
+            gap:18px;
+            padding:22px 24px;
+            border-radius:18px;
+            background:#f8fafc;
+            color:#0f172a;
+            text-decoration:none;
+            font-size:18px;
+            border:1px solid #e2e8f0;
+            transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+        }
+
+        .contact-links a:hover{
+            transform:translateY(-3px);
+            box-shadow:0 16px 35px rgba(15,23,42,0.12);
+            background:#eef2ff;
+        }
+
+        .contact-links i{
+            font-size:24px;
+            width:42px;
+            text-align:center;
+            color:#7c3aed;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .hero{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .hero h1{
+                font-size:55px;
+            }
+
+            .hero-image img{
+                width:300px;
+                height:300px;
+            }
+
+            nav{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-circle">ND</div>
+
+            Nandini Dhonde
+
+        </div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="tag">
+                ✨ AI & DS Enthusiast
+            </div>
+
+            <h1>
+                Hi, I'm <br>
+                <span>Nandini Dhonde</span>
+            </h1>
+
+            <h3>
+                2nd Year B.Tech CSE (AIDS) Student
+            </h3>
+
+            <p>
+                Passionate about Artificial Intelligence,
+                Web Development and building innovative solutions.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Projects
+                </a>
+
+                <a href="https://github.com/nandinidhonde07"
+                    target="_blank"
+                    class="btn btn-secondary">
+
+                    GitHub Profile
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="file:///C:/Users/seema/Downloads/WhatsApp%20Image%202026-05-18%20at%2011.58.38%20AM.jpeg" alt="Nandini Dhonde">
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="info-container">
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-user"></i>
+
+                <h2>About Me</h2>
+
+                <p>
+                    I am a 2nd year Artificial Intelligence
+                    and Data Science student passionate
+                    about AI systems, web development,
+                    automation and innovative technology projects.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-code"></i>
+
+                <h2>Skills</h2>
+
+                <ul>
+                    <li>HTML & CSS</li>
+                    <li>GitHub</li>
+                    <li>Python Basics</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Problem Solving</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <h1 class="section-title">
+            My Projects
+        </h1>
+
+        <div class="projects">
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-icon green">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <h3>
+                    Smart Retail AI System
+                </h3>
+
+                <p>
+                    AI-powered retail management solution
+                    for local kirana stores.
+                </p>
+
+                <div class="tags">
+                    <span>AI</span>
+                    <span>Python</span>
+                    <span>Retail</span>
+                </div>
+
+            </div>
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-icon blue">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+
+                <h3>
+                    Business AI Agent
+                </h3>
+
+                <p>
+                    AI assistant for handling
+                    business-related operations efficiently.
+                </p>
+
+                <div class="tags">
+                    <span>AI</span>
+                    <span>Automation</span>
+                    <span>NLP</span>
+                </div>
+
+            </div>
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div class="project-icon purple">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h3>
+                    Cyber Akinator 2077
+                </h3>
+
+                <p>
+                    Cybersecurity and intelligent
+                    guessing based interactive project.
+                </p>
+
+                <div class="tags">
+                    <span>Cybersecurity</span>
+                    <span>Python</span>
+                    <span>AI</span>
+                </div>
+
+            </div>
+
+            <!-- PROJECT 4 -->
+
+            <div class="project-card">
+
+                <div class="project-icon orange">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <h3>
+                    NYNM
+                </h3>
+
+                <p>
+                    Collaborative technical project
+                    built with modern development practices.
+                </p>
+
+                <div class="tags">
+                    <span>Web</span>
+                    <span>Team Project</span>
+                    <span>Tools</span>
+                </div>
+
+            </div>
+
+            <!-- PROJECT 5 -->
+
+            <div class="project-card">
+
+                <div class="project-icon pink">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+
+                <h3>
+                    Fab Lab New Project
+                </h3>
+
+                <p>
+                    Innovation and fabrication based
+                    project with real-world applications.
+                </p>
+
+                <div class="tags">
+                    <span>Innovation</span>
+                    <span>Fabrication</span>
+                    <span>IoT</span>
+                </div>
+
+            </div>
+
+            <!-- PROJECT 6 -->
+
+            <div class="project-card">
+
+                <div class="project-icon leaf">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+
+                <h3>
+                    Nutrition – Your Natural Medicine
+                </h3>
+
+                <p>
+                    Nutrition and health awareness
+                    digital platform.
+                </p>
+
+                <div class="tags">
+                    <span>Health</span>
+                    <span>Awareness</span>
+                    <span>Web</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <h2>
+            Let's Connect
+        </h2>
+
+        <p>
+            I’m available for internships, AI collaborations, and development opportunities.
+            Reach out and let’s build something meaningful together.
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:nandini.dhonde1@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                nandini.dhonde1@gmail.com
+            </a>
+
+            <a href="https://github.com/nandinidhonde07" target="_blank">
+                <i class="fa-brands fa-github"></i>
+                github.com/nandinidhonde07
+            </a>
+
+            <a href="https://www.linkedin.com/in/nandini-dhonde-73b765373" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+                linkedin.com/in/nandini-dhonde-73b765373
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        © 2026 Nandini Dhonde Portfolio
+
+    </footer>
+
+</body>
+
+</html>
