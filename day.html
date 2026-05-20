@@ -247,12 +247,14 @@
         </div>
       `;
 
-      if (week === 1 && day === 1) {
+      if (week === 1 && (day === 1 || day === 2)) {
+        const docDay = day === 1 ? 'Day 1' : 'Day 2';
+        const docFile = day === 1 ? 'Week 1 of Day 1.docx' : 'Week 1 of Day 2.docx';
         docLink.innerHTML = `
           <div class="download-card">
-            <h3>Week 1 Day 1 Document</h3>
-            <p class="section-subtitle">Download the attached Day 1 portfolio summary file for the full report and task details.</p>
-            <a href="Week 1 of Day 1.docx" download>Download the Day 1 File</a>
+            <h3>Week 1 ${docDay} Document</h3>
+            <p class="section-subtitle">Download the attached Week 1 ${docDay} portfolio summary file for the full report and task details.</p>
+            <a href="${docFile}" download>Download the ${docDay} File</a>
           </div>
         `;
       } else {
