@@ -41,6 +41,10 @@
     .info-box { background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 18px; }
     .info-box h3 { color: var(--accent); margin-bottom: 10px; }
     .info-box p { color: var(--muted); line-height:1.75; }
+    .download-card { background: rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.22); border-radius: 18px; padding: 20px; margin-top: 20px; }
+    .download-card h3 { color: var(--accent); margin-bottom: 10px; }
+    .download-card a { display:inline-flex; align-items:center; justify-content:center; padding: 12px 18px; border-radius:999px; background: linear-gradient(135deg, rgba(139,92,246,0.95), rgba(168,85,247,0.9)); color:#fff; font-weight:700; text-decoration:none; transition: transform 180ms ease, box-shadow 180ms ease; }
+    .download-card a:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(139,92,246,0.24); }
     .button-group { display:flex; flex-wrap:wrap; gap:12px; margin-top: 16px; }
     .btn { display:inline-flex; align-items:center; justify-content:center; padding: 12px 18px; border-radius:999px; font-weight:700; transition: transform 180ms ease, filter 180ms ease; }
     .btn-back { background: rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); color: var(--text); }
@@ -84,7 +88,10 @@
             <p id="dayWhy">Each day captures a small step in learning and building stronger technical habits.</p>
           </div>
 
-          <div class="details-block" id="dayBlocks"></div>
+          <div class="details-block">
+          <div id="dayBlocks"></div>
+          <div id="docLink"></div>
+      </div>
 
           <div class="button-group">
             <a class="btn btn-back" href="index.html#weeks">Back to Weeks</a>
@@ -197,45 +204,61 @@
       return new URLSearchParams(window.location.search).get(key);
     }
 
-    const week = parseInt(getQueryValue('week'), 10);
-    const day = parseInt(getQueryValue('day'), 10);
-    const detail = data[week] && data[week][day];
+    const week = parseInt(getQueryValue('week'), 10) || 1;
+    const day = parseInt(getQueryValue('day'), 10) || 1;
 
     const dayTitle = document.getElementById('dayTitle');
     const dayBadge = document.getElementById('dayBadge');
     const dayDescription = document.getElementById('dayDescription');
     const dayWhy = document.getElementById('dayWhy');
     const dayBlocks = document.getElementById('dayBlocks');
+    const docLink = document.getElementById('docLink');
     const dayImage = document.getElementById('dayImage');
     const photoBlock = document.getElementById('photoBlock');
 
-    if (!detail) {
-      dayTitle.textContent = 'Day Not Found';
-      dayBadge.textContent = 'Invalid selection';
-      dayDescription.textContent = 'The selected week or day is not available yet. Please return to the Weeks section and choose a valid entry.';
-      dayWhy.textContent = 'You can still use the Back to Weeks link below to choose another day.';
-      dayBlocks.innerHTML = '<div class="error-card"><p>Invalid day or week selection. Use the navigation above or go back to the main portfolio.</p></div>';
-      dayImage.src = 'day1-photo.jpeg';
-      dayImage.alt = 'Placeholder image';
-      photoBlock.style.background = 'rgba(255,255,255,0.03)';
-      return;
-    }
+    const detail = data[week] && data[week][day] ? data[week][day] : data[1][1];
 
-    dayTitle.textContent = detail.title;
-    dayBadge.textContent = `Week ${week} · Day ${day}`;
-    dayDescription.textContent = detail.description;
-    dayWhy.textContent = detail.why;
-    dayImage.src = detail.image;
-    dayImage.alt = detail.title;
+    window.addEventListener('DOMContentLoaded', function() {
+      if (!detail) {
+        dayTitle.textContent = 'Day Not Found';
+        dayBadge.textContent = 'Invalid selection';
+        dayDescription.textContent = 'The selected week or day is not available yet. Please return to the Weeks section and choose a valid entry.';
+        dayWhy.textContent = 'You can still use the Back to Weeks link below to choose another day.';
+        dayBlocks.innerHTML = '<div class="error-card"><p>Invalid day or week selection. Use the navigation above or go back to the main portfolio.</p></div>';
+        dayImage.src = 'day1-photo.jpeg';
+        dayImage.alt = 'Placeholder image';
+        photoBlock.style.background = 'rgba(255,255,255,0.03)';
+        return;
+      }
 
-    dayBlocks.innerHTML = `
-      <div class="info-box">
-        <h3>Key tasks</h3>
-        <ul class="task-list">
-          ${detail.tasks.map(task => `<li>${task}</li>`).join('')}
-        </ul>
-      </div>
-    `;
+      dayTitle.textContent = detail.title;
+      dayBadge.textContent = `Week ${week} · Day ${day}`;
+      dayDescription.textContent = detail.description;
+      dayWhy.textContent = detail.why;
+      dayImage.src = detail.image;
+      dayImage.alt = detail.title;
+
+      dayBlocks.innerHTML = `
+        <div class="info-box">
+          <h3>Key tasks</h3>
+          <ul class="task-list">
+            ${detail.tasks.map(task => `<li>${task}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      if (week === 1 && day === 1) {
+        docLink.innerHTML = `
+          <div class="download-card">
+            <h3>Week 1 Day 1 Document</h3>
+            <p class="section-subtitle">Download the attached Day 1 portfolio summary file for the full report and task details.</p>
+            <a href="Week 1 of Day 1.docx" download>Download the Day 1 File</a>
+          </div>
+        `;
+      } else {
+        docLink.innerHTML = '';
+      }
+    });
   </script>
 </body>
 </html>
