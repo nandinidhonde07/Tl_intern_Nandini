@@ -59,8 +59,16 @@
 
     .btn-outline { border:1px solid var(--border) }
 
-    .profile-circle { width:320px; height:320px; border-radius:50%; overflow:hidden; border:5px solid var(--accent); box-shadow:0 0 30px rgba(139,92,246,0.25); background:#1e293b; animation: float 6s ease-in-out infinite; }
-    .profile-circle img { width:100%; height:100%; object-fit:cover; }
+    .profile-circle { width:320px; height:320px; border-radius:50%; overflow:visible; border:5px solid var(--accent); box-shadow:0 0 30px rgba(139,92,246,0.25); background:#1e293b; animation: float 6s ease-in-out infinite; position:relative; }
+    .profile-circle img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+    
+    .logo-badge { position:absolute; bottom:-12px; right:-12px; width:130px; height:130px; border-radius:50%; border:5px solid var(--accent); background:#0f172a; box-shadow:0 8px 24px rgba(139,92,246,0.35), inset 0 0 20px rgba(139,92,246,0.1); display:flex; align-items:center; justify-content:center; padding:0; z-index:10; animation: badgePulse 3s ease-in-out infinite; }
+    .logo-badge img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+    
+    @keyframes badgePulse {
+      0%, 100% { box-shadow:0 8px 24px rgba(139,92,246,0.35), inset 0 0 20px rgba(139,92,246,0.1); transform:scale(1); }
+      50% { box-shadow:0 12px 32px rgba(139,92,246,0.45), inset 0 0 20px rgba(139,92,246,0.15); transform:scale(1.05); }
+    }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px); box-shadow:0 0 30px rgba(139,92,246,0.25); }
@@ -138,6 +146,7 @@
     @media (max-width:900px) {
       .hero-grid { grid-template-columns: 1fr }
       .profile-circle { width:220px; height:220px }
+      .logo-badge { width:90px; height:90px; bottom:-8px; right:-8px; border:4px solid var(--accent); }
       .week-list { grid-template-columns: 1fr }
       .process-flow { flex-direction:column }
     }
@@ -174,7 +183,10 @@
         </div>
         <div class="hero-image">
           <div class="profile-circle">
-            <img src="day1-photo.jpeg" alt="Nandini Dhonde photo">
+            <img src="day1-photo (2).jpeg" alt="Nandini Dhonde photo">
+            <div class="logo-badge">
+              <img src="TL_Intern_logo.png" alt="Tinkerers Lab logo">
+            </div>
           </div>
         </div>
       </div>
