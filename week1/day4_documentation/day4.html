@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 1 Day 4 | Nandini Dhonde</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    background:#0f172a;
+    color:white;
+    line-height:1.7;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 0;
+}
+
+h1{
+    color:#8b5cf6;
+    font-size:50px;
+}
+
+h2{
+    color:#8b5cf6;
+    margin-top:40px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+    margin-top:25px;
+}
+
+img{
+    width:100%;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+ul li{
+    margin-bottom:12px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 22px;
+    background:#8b5cf6;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#7c3aed;
+}
+
+.back-btn{
+    display:inline-block;
+    margin:15px 0;
+    background:#1e293b;
+    color:#8b5cf6;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    font-size:14px;
+    border:2px solid #8b5cf6;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#8b5cf6;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Week 1 - Day 4</h1>
+
+<a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+
+<p>
+Internship Report – Day 4
+</p>
+
+<div class="card">
+
+<h2>Objective</h2>
+
+<p>
+To review manufacturing processes, understand 3D printing workflows and constraints, perform calibration runs, and create a logo using Inkscape.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Common 3D Printing Filaments</h2>
+
+<ul>
+<li><strong>PLA (Polylactic Acid)</strong> – Easy to print, biodegradable, beginner-friendly.</li>
+
+<li><strong>ABS (Acrylonitrile Butadiene Styrene)</strong> – Stronger and heat resistant but requires ventilation.</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Step 1: Review Manufacturing Processes</h2>
+
+<ul>
+<li>Subtractive: milling, turning, grinding</li>
+
+<li>Formative: molding, casting</li>
+
+<li>Additive: 3D printing</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Step 2: Compile Machine Axis Conventions</h2>
+
+<ul>
+<li>X/Y = horizontal plane</li>
+
+<li>Z = vertical motion</li>
+
+<li>A/B/C = rotational axes</li>
+
+<li>Lathe: Z = feed, spindle rotation = C axis</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Step 3: Set Up Slicing Software</h2>
+
+<ul>
+<li>Imported CAD model</li>
+
+<li>Selected filament type and color</li>
+
+<li>Configured layer height, infill, and supports</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Step 4: Perform Calibration Runs</h2>
+
+<ul>
+<li>Tested tolerances from 0.1 mm to 3 mm</li>
+
+<li>Adjusted slicer settings</li>
+
+<li>Documented calibration curves</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Step 5: Report Material Limitations</h2>
+
+<ul>
+<li>ABS requires enclosed chamber</li>
+
+<li>Printable thickness: 0.1 mm – 3 mm</li>
+
+<li>Overhangs greater than 45° need supports</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Overhanging Print Experiment</h2>
+
+<ul>
+<li>Designed test model with overhangs</li>
+
+<li>Observed support requirements</li>
+
+<li>Verified calibration tolerances within 0.2 mm</li>
+
+<li>Unsupported overhangs sagged</li>
+</ul>
+
+
+
+</div>
+
+<div class="card">
+
+<h2>Design for Manufacturing (DfM)</h2>
+
+<ul>
+<li>Follow ISO standard dimensions</li>
+
+<li>Minimize overhang angles</li>
+
+<li>Account for shrinkage and deformation</li>
+
+<li>Validate geometry before printing</li>
+</ul>
+
+<img src="img1_d4_w1.jpeg">
+                <img src="img2_d4_w1.jpeg">
+
+</div>
+
+<div class="card">
+
+<h2>Calibration Boat Experiment</h2>
+
+<p>
+We printed a calibration boat (benchy) to evaluate printer performance for overhangs, bridges, surface finish, and dimensional accuracy.
+</p>
+
+
+</div>
+
+<div class="card">
+
+<h2>Step 1: Sketch / CAD Model</h2>
+
+<ul>
+<li>Used standard Benchy STL file</li>
+
+<li>Verified dimensions in CAD software</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Step 2: Slicing Setup</h2>
+
+<ul>
+<li>Printer: Bambu Lab A1 Mini</li>
+
+<li>Nozzle Diameter: 0.4 mm</li>
+
+<li>Filament: Generic PLA</li>
+
+<li>Layer Height: 0.20 mm</li>
+
+<li>Print Time: 53 minutes</li>
+</ul>
+
+<img src="img3_d4_w1.png">
+                <img src="img4_d4_w1.png">
+
+</div>
+
+<div class="card">
+
+<h2>Step 3: Printing</h2>
+
+<ul>
+<li>Loaded PLA filament</li>
+
+<li>Performed bed leveling</li>
+
+<li>Observed overhangs during printing</li>
+</ul>
+
+ <img src="img5_d4_w1.jpeg">
+ <img src="img6_d4_w1.jpeg">
+ <img src="img7_d4_w1.jpeg">
+
+</div>
+
+<div class="card">
+
+<h2>Outcome</h2>
+
+<ul>
+<li>Verified printer calibration</li>
+
+<li>Documented filament usage and print time</li>
+
+<li>Confirmed printer can handle complex geometries</li>
+
+<li>Created a logo in Inkscape for branding</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Logo Design with Inkscape</h2>
+
+<p>
+Created a professional Tinkerers Lab logo using Inkscape with curved text and emblem graphics.
+</p>
+<img src="img8_d4_w1.png">
+
+</div>
+
+<div class="card">
+
+<h2>Adding Shapes and Text</h2>
+
+<ul>
+<li>Created thick blue ring</li>
+
+<li>Added curved text</li>
+
+<li>Used bold white capital letters</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Adding Logo Elements</h2>
+
+<ul>
+<li>Imported emblem graphics</li>
+
+<li>Placed Sanjivani emblem inside circle</li>
+
+<li>Combined graphics into badge design</li>
+</ul>
+
+<img src="img9_d4_w1.png">
+
+</div>
+
+<div class="card">
+
+<h2>GitHub Integration</h2>
+
+<ul>
+<li>Edited and exported logo files</li>
+
+<li>Used Git commands to commit changes</li>
+
+<li>Pushed updated logo to GitHub</li>
+</ul>
+
+
+</div>
+
+<div class="card">
+
+<h2>Git Commands Used</h2>
+
+<pre style="background:black;padding:15px;border-radius:10px;overflow:auto;color:#00ff88;">
+git add logo.png logo.svg
+git commit -m "Updated Tinkerers Lab Intern logo"
+git push origin main
+</pre>
+
+
+<img src="img10_d4_w1.png">
+
+</div>
+
+<div class="card">
+
+<h2>Conclusion</h2>
+
+<p>
+Day 4 combined manufacturing concepts, 3D printing workflows, calibration experiments, logo creation, and GitHub integration. This strengthened both my technical and creative skills while improving my understanding of documentation and version control.
+</p>
+
+</div>
+
+<a href="../../index.html" class="btn">← Back to Portfolio</a>
+
+</div>
+
+</body>
+</html>
