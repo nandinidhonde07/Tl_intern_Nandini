@@ -156,18 +156,24 @@ header p{
 
 .back-btn{
     display:inline-block;
-    margin:20px 0;
-    background:#1e293b;
-    color:#7c3aed;
+    margin:40px 20px 40px 0;
+    background:#a855f7;
+    color:white;
     text-decoration:none;
-    padding:12px 20px;
-    border-radius:8px;
-    border:2px solid #7c3aed;
+    padding:18px 40px;
+    border-radius:12px;
+    border:none;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    box-shadow:0px 6px 20px rgba(168,85,247,0.4);
 }
 
 .back-btn:hover{
-    background:#7c3aed;
-    color:white;
+    background:#9333ea;
+    transform:translateY(-3px);
+    box-shadow:0px 10px 30px rgba(168,85,247,0.6);
 }
 
 footer{
@@ -183,7 +189,7 @@ footer{
 </head>
 <header>
 
-        <h1>Week 1 - Day 1</h1>
+        <h1>Week 2 - Day 5</h1>
 
         <p>Summer Internship Documentation</p>
 
@@ -192,33 +198,328 @@ footer{
 </header>
 
 <body>
+<div class="intro">
+
+    <h2>Objective</h2>
+
+    <p>
+        To learn ESP32 simulation using Wokwi, create and test an LED Blink
+        project on GPIO 4, understand virtual circuit design, and document
+        the complete workflow using VS Code and GitHub.
+    </p>
+
+</div>
+
 <!-- STEP 1 -->
 
 <div class="step-card">
-
     <div class="step-title">
-        <h2>Step 1: Arduino Download & Exploration</h2>
+        <h2>Step 1: Searching for Wokwi</h2>
+    </div>
+
+    <div class="step-content">
+        <p>
+            Began the day by exploring Wokwi, the ESP32 simulator.
+            Found it through search results comparing collaboration tools
+            and simulators.
+        </p>
+
+        <img src="img1_d5_w2.jpeg">
+    </div>
+</div>
+
+<!-- STEP 2 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 2: Opening Wokwi Homepage</h2>
+    </div>
+
+    <div class="step-content">
+        <p>
+            Navigated to the Wokwi homepage and explored available
+            simulation options including Arduino, ESP32, STM32 and Pi Pico.
+        </p>
+
+        <img src="img2_d5_w2.jpeg">
+    </div>
+</div>
+
+<!-- STEP 3 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 3: Signing In</h2>
+    </div>
+
+    <div class="step-content">
+        <p>
+            Signed in using Google/GitHub credentials to save projects
+            and access advanced simulation features.
+        </p>
+
+        <img src="img2_d5_w2.jpeg">
+        <img src="img12_d5_w2.jpeg">
+    </div>
+</div>
+
+<!-- STEP 4 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 4: Selecting ESP32 Board</h2>
+    </div>
+
+    <div class="step-content">
+        <p>
+            Selected the ESP32 board and explored available project
+            templates designed for ESP32 development.
+        </p>
+
+        <img src="img13_d5_w2.jpeg">
+        <img src="img11_d5_w2.jpeg">
+    </div>
+</div>
+
+<!-- STEP 5 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 5: Writing First Code</h2>
+    </div>
+
+    <div class="step-content">
+        <p>
+            Created a new ESP32 project and wrote a simple serial
+            output program to verify simulator functionality.
+        </p>
+
+        <img src="img9_d5_w2.jpeg">
+        <img src="img4_d5_w2.jpeg">
+    </div>
+</div>
+
+<!-- STEP 6 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 6: Adding Components</h2>
+    </div>
+
+    <div class="step-content">
+        <p>
+            Added a red LED and resistor to the ESP32 circuit and
+            connected the LED to GPIO pin 4.
+        </p>
+
+        <img src="img8_d5_w2.jpeg">
+        <img src="img6_d5_w2.jpeg">
+    </div>
+</div>
+
+<!-- STEP 7 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 7: Writing LED Blink Code</h2>
     </div>
 
     <div class="step-content">
 
         <p>
-            We began the day by downloading and installing the Arduino IDE.
-            After successful installation, we explored the interface including
-            File, Sketch, Tools, Board Manager, and Serial Monitor options.
-            Soham Kadu introduced us to the Arduino Uno board and explained
-            the purpose of digital pins, analog pins, power pins, and USB connectivity.
+            Programmed the ESP32 to blink the LED connected to GPIO 4.
         </p>
+
+        <pre style="background:#0f172a;padding:20px;border-radius:10px;color:#c4b5fd;overflow:auto;">
+void setup(){
+  pinMode(14, OUTPUT);
+}
+
+void loop(){
+  digitalWrite(14, HIGH);
+  delay(1000);
+
+  digitalWrite(14, LOW);
+  delay(1000);
+}
+        </pre>
 
         <p>
-            To verify the setup, we uploaded the Blink program to the Arduino Uno.
-            The onboard LED blinking confirmed successful communication between
-            the IDE and the microcontroller. We also learned how the Serial Monitor
-            can be used to display sensor readings and debugging information.
+            The program continuously turns the LED ON and OFF every second.
         </p>
 
-        
+       
+
+    </div>
+</div>
+
+<!-- STEP 8 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 8: Running the Simulation</h2>
+    </div>
+
+    <div class="step-content">
+
+        <p>
+            Started the Wokwi simulation and observed the LED blinking
+            successfully every second.
+        </p>
+
+        <img src="img10_d5_w2.jpeg">
+        <p>
+            Verified that the circuit and code were working correctly
+            in the virtual environment. This was a crucial step in understanding
+            how ESP32 GPIO pins control external components like LEDs.
+
+    </div>
+</div>
+
+<!-- STEP 9 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 9: Documentation & GitHub Push</h2>
+    </div>
+
+    <div class="step-content">
+
+        <p>
+            Documented the complete workflow in VS Code with screenshots,
+            observations and results. Committed and pushed all files
+            to GitHub for version control.
+        </p>
+
+    </div>
+</div>
+
+<!-- STEP 10 -->
+
+<div class="step-card">
+    <div class="step-title">
+        <h2>Step 10: Final Proof – Screen Recording</h2>
+    </div>
+
+    <div class="step-content">
+
+        <p>
+            Recorded the LED blinking simulation as final proof that
+            the ESP32 circuit, code and virtual hardware were working correctly.
+        </p>
+        <video width="700" height="500" controls>
+            <source src="img14_d5_w2.mp4" type="video/mp4">
+        </video>
+
+    </div>
+</div>
+
+
+<!-- SUMMARY TABLE -->
+
+<div class="section-box">
+
+<h2>Project Summary</h2>
+
+<table style="width:100%;border-collapse:collapse;margin-top:20px;">
+
+<tr style="background:#7c3aed;color:white;">
+<th style="padding:15px;border:1px solid #c4b5fd;">Activity</th>
+<th style="padding:15px;border:1px solid #c4b5fd;">Learning</th>
+<th style="padding:15px;border:1px solid #c4b5fd;">Outcome</th>
+</tr>
+
+<tr>
+<td style="padding:15px;border:1px solid #475569;">Wokwi Setup</td>
+<td style="padding:15px;border:1px solid #475569;">Simulator Navigation</td>
+<td style="padding:15px;border:1px solid #475569;">ESP32 Environment Ready</td>
+</tr>
+
+<tr>
+<td style="padding:15px;border:1px solid #475569;">ESP32 Board</td>
+<td style="padding:15px;border:1px solid #475569;">Virtual Hardware Selection</td>
+<td style="padding:15px;border:1px solid #475569;">Project Created</td>
+</tr>
+
+<tr>
+<td style="padding:15px;border:1px solid #475569;">LED Circuit</td>
+<td style="padding:15px;border:1px solid #475569;">GPIO Connections</td>
+<td style="padding:15px;border:1px solid #475569;">Working Circuit</td>
+</tr>
+
+<tr>
+<td style="padding:15px;border:1px solid #475569;">LED Blink Program</td>
+<td style="padding:15px;border:1px solid #475569;">Digital Output Control</td>
+<td style="padding:15px;border:1px solid #475569;">LED Blink Successful</td>
+</tr>
+
+<tr>
+<td style="padding:15px;border:1px solid #475569;">GitHub Integration</td>
+<td style="padding:15px;border:1px solid #475569;">Version Control</td>
+<td style="padding:15px;border:1px solid #475569;">Project Published</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- OUTCOME -->
+
+<div class="section-box">
+
+<h2>Outcome</h2>
+
+<ul>
+
+<li>Successfully explored and configured Wokwi ESP32 Simulator.</li>
+
+<li>Built an ESP32 LED circuit using GPIO 4.</li>
+
+<li>Verified LED blinking through simulation.</li>
+
+<li>Documented the project in VS Code.</li>
+
+<li>Pushed project files to GitHub repository.</li>
+
+</ul>
+
+</div>
+
+<!-- CONCLUSION -->
+
+<div class="section-box">
+
+<h2>Conclusion</h2>
+
+<p>
+Day 5 was a complete cycle of simulation, coding and documentation.
+Using Wokwi, I built a simple LED Blink project on ESP32 with GPIO 4,
+understood how output pins work, and verified the circuit virtually.
+By documenting everything and pushing the work to GitHub, I ensured
+that the project remains organized, reproducible and collaborative.
+The screen recording of the LED blink simulation serves as final proof
+of successful implementation.
+</p>
+
+</div>
+ <!-- BUTTON -->
+
+        <a href="../../index.html" class="btn">
+
+            ← Back to Portfolio
+
+        </a>
 
     </div>
 
-</div>
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Nandini Dhonde | Internship Documentation
+
+    </footer>
+
+</body>
+
+</html>

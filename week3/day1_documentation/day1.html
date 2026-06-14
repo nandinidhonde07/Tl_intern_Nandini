@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 3 Day 1 | Sensors Documentation</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+    line-height:1.8;
+}
+
+header{
+    background:linear-gradient(to right,#4c1d95,#7c3aed);
+    padding:70px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+header p{
+    font-size:22px;
+    color:#ddd6fe;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 0;
+}
+
+.intro{
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:50px;
+    box-shadow:0px 0px 20px rgba(124,58,237,0.3);
+}
+
+.intro h2{
+    font-size:38px;
+    margin-bottom:20px;
+    color:#c4b5fd;
+}
+
+.intro p{
+    font-size:20px;
+    color:#e2e8f0;
+}
+
+.step-card{
+    background:#1e293b;
+    margin-bottom:40px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0px 0px 20px rgba(124,58,237,0.2);
+}
+
+.step-title{
+    background:#7c3aed;
+    padding:22px;
+}
+
+.step-title h2{
+    font-size:30px;
+}
+
+.step-content{
+    padding:30px;
+}
+
+.step-content p{
+    font-size:20px;
+    color:#e2e8f0;
+    margin-bottom:20px;
+}
+
+.step-content ul{
+    padding-left:25px;
+}
+
+.step-content li{
+    font-size:20px;
+    color:#e2e8f0;
+    margin-bottom:10px;
+}
+
+.step-content img{
+    width:100%;
+    margin-top:20px;
+    border-radius:15px;
+    border:3px solid #7c3aed;
+}
+
+.section-box{
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    margin-top:50px;
+}
+
+.section-box h2{
+    color:#c4b5fd;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.section-box ul{
+    padding-left:25px;
+}
+
+.section-box li{
+    font-size:20px;
+    margin-bottom:15px;
+    color:#e2e8f0;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:30px;
+    background:#7c3aed;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    background:#7c3aed;
+    padding:15px;
+    border:1px solid #c4b5fd;
+}
+
+td{
+    padding:15px;
+    border:1px solid #475569;
+    color:#e2e8f0;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+    margin-top:60px;
+    color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Week 3 - Day 1</h1>
+
+<p>Sensors Documentation</p>
+
+<a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+
+</header>
+
+<div class="container">
+
+<div class="intro">
+
+<h2>Introduction</h2>
+
+<!-- ESP32 Detailed Information Section -->
+
+<section class="section">
+    <h2>ESP32 Microcontroller – Detailed Information</h2>
+
+    <img src="img1_d1_w3.png" alt="ESP32 Development Board" class="step-image">
+    <img src="img2_d1_w3.png"
+    <img src="img3_d1_w3.png"
+    <div class="info-box">
+        <h3>🔎 Overview</h3>
+        <p>
+            The ESP32 is a low-cost, low-power microcontroller developed by Espressif Systems.
+            It is one of the most popular chips for IoT and embedded projects because it integrates
+            Wi-Fi (802.11 b/g/n) and Bluetooth (Classic + BLE) on a single chip.
+            Built on a dual-core Xtensa LX6 processor running up to 240 MHz,
+            it offers high performance while maintaining energy efficiency.
+        </p>
+    </div>
+
+    <div class="info-box">
+        <h3>⚙️ Technical Specifications</h3>
+
+        <table class="spec-table">
+            <tr>
+                <th>Feature</th>
+                <th>Specification</th>
+            </tr>
+            <tr>
+                <td>Processor</td>
+                <td>Dual-core Xtensa LX6, 32-bit, up to 240 MHz</td>
+            </tr>
+            <tr>
+                <td>Memory</td>
+                <td>520 KB SRAM, 448 KB ROM</td>
+            </tr>
+            <tr>
+                <td>Connectivity</td>
+                <td>Wi-Fi (2.4 GHz), Bluetooth v4.2 BR/EDR + BLE</td>
+            </tr>
+            <tr>
+                <td>GPIO Pins</td>
+                <td>34 Programmable Pins</td>
+            </tr>
+            <tr>
+                <td>ADC</td>
+                <td>18-channel 12-bit ADC</td>
+            </tr>
+            <tr>
+                <td>DAC</td>
+                <td>2 × 8-bit DAC</td>
+            </tr>
+            <tr>
+                <td>Voltage</td>
+                <td>3.0V – 3.6V (3.3V Logic)</td>
+            </tr>
+            <tr>
+                <td>Security</td>
+                <td>AES, SHA, RSA, ECC Hardware Acceleration</td>
+            </tr>
+        </table>
+    </div>
+    <img src="img4_d1_w3.png"
+    <div class="info-box">
+        <h3>📱 Common Uses</h3>
+        <ul>
+            <li>IoT Devices and Smart Home Systems</li>
+            <li>Wearables and Health Monitoring Devices</li>
+            <li>Industrial Wireless Sensor Networks</li>
+            <li>Robotics and Motor Control Applications</li>
+            <li>Consumer Electronics and Smart Gadgets</li>
+            <li>Educational and Research Projects</li>
+        </ul>
+    </div>
+    <img src="img5_d1_w3.png"
+    <div class="info-box">
+        <h3>🛠️ Advantages</h3>
+        <ul>
+            <li>Built-in Wi-Fi and Bluetooth Connectivity</li>
+            <li>Supports Arduino IDE, MicroPython, and ESP-IDF</li>
+            <li>Large Open-Source Community Support</li>
+            <li>Cost-Effective Solution for IoT Projects</li>
+            <li>Low-Power Deep Sleep Modes</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h3>⚠️ Limitations</h3>
+        <ul>
+            <li>Higher Power Consumption when Wi-Fi is Active</li>
+            <li>Not 5V Tolerant (Requires Level Shifters)</li>
+            <li>More Complex than Basic Arduino Boards</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h3>📑 Relevance to Solar Dryer Project</h3>
+
+        <p>
+            In the Solar Dryer Project, the ESP32 acts as the central controller of the system.
+            It reads temperature and humidity data from the DHT11 sensor, controls motors and
+            fans through the L298N motor driver, operates relays, and displays information on
+            the 8×8 LED Matrix Display.
+        </p>
+
+        <p>
+            Through Wi-Fi connectivity, the ESP32 can also transmit sensor data to cloud
+            platforms and mobile applications, enabling remote monitoring and automation.
+            This makes the ESP32 the heart of the Solar Dryer System.
+        </p>
+    </div>
+</section>
+
+<!-- Block Diagram Section -->
+
+<section class="section">
+    <h2>ESP32 Solar Dryer Block Diagram</h2>
+
+    <img src="img6_d1_w3.png" alt="ESP32 Solar Dryer Block Diagram" class="step-image">
+
+    <div class="info-box">
+        <h3>ESP32 Solar Dryer Block Diagram – Explanation</h3>
+
+        <h4>ESP32 (Central Controller)</h4>
+        <p>
+            At the heart of the system, the ESP32 collects sensor data,
+            processes it, and controls outputs. It also provides Wi-Fi and
+            Bluetooth connectivity for remote monitoring.
+        </p>
+
+        <h4>DHT11 Sensor → ESP32</h4>
+        <p>
+            The DHT11 sends temperature and humidity data to the ESP32.
+            This helps monitor drying conditions inside the solar dryer.
+        </p>
+
+        <h4>ESP32 → L298N Motor Driver</h4>
+        <p>
+            The ESP32 controls motors and fans through the L298N driver,
+            regulating airflow according to environmental conditions.
+        </p>
+
+        <h4>ESP32 → Relay Module</h4>
+        <p>
+            The relay module allows the ESP32 to safely control
+            higher-power loads such as heaters and external fans.
+        </p>
+
+        <h4>ESP32 → 8×8 LED Matrix Display</h4>
+        <p>
+            Temperature, humidity, and system status information
+            are displayed on the LED matrix for real-time feedback.
+        </p>
+
+        <h4>Buck Converter → ESP32</h4>
+        <p>
+            The buck converter supplies a stable regulated voltage
+            to the ESP32 and connected modules, ensuring reliable operation.
+        </p>
+    </div>
+</section>
+
+<!-- DHT11 Temperature & Humidity Sensor -->
+<section class="project-section">
+    <h2>DHT11 Temperature & Humidity Sensor</h2>
+
+    <h3>🔍 Overview</h3>
+    <p>
+        The DHT11 is a low-cost digital temperature and humidity sensor widely used in IoT,
+        automation, weather monitoring, and embedded systems projects. It combines a humidity
+        sensing component, an NTC thermistor, and a signal processing IC to provide calibrated
+        digital output. The sensor communicates with microcontrollers such as ESP32 and Arduino
+        through a single-wire communication protocol.
+    </p>
+
+    <div class="image-container">
+        <img src="img10_d1_w3.jpeg" alt="DHT11 Temperature and Humidity Sensor">
+
+        <p class="image-caption">Figure 1: DHT11 Temperature & Humidity Sensor</p>
+    </div>
+
+    <h3>🔍 Internal Structure</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>Humidity Sensing Element</td>
+                <td>Polymer film capacitor that changes capacitance according to moisture levels.</td>
+            </tr>
+            <tr>
+                <td>Temperature Sensing Element</td>
+                <td>NTC thermistor that changes resistance with temperature.</td>
+            </tr>
+            <tr>
+                <td>Signal Processing Chip</td>
+                <td>Converts analog measurements into calibrated digital output.</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>⚙️ Detailed Electrical Characteristics</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Supply Voltage</td>
+                <td>3.3V – 5.5V</td>
+            </tr>
+            <tr>
+                <td>Maximum Current</td>
+                <td>2.5mA during measurement</td>
+            </tr>
+            <tr>
+                <td>Output Signal</td>
+                <td>Digital Single-Wire Protocol</td>
+            </tr>
+            <tr>
+                <td>Temperature Resolution</td>
+                <td>1°C</td>
+            </tr>
+            <tr>
+                <td>Humidity Resolution</td>
+                <td>1% RH</td>
+            </tr>
+            <tr>
+                <td>Temperature Accuracy</td>
+                <td>±2°C</td>
+            </tr>
+            <tr>
+                <td>Humidity Accuracy</td>
+                <td>±5% RH</td>
+            </tr>
+            <tr>
+                <td>Sampling Rate</td>
+                <td>1 Hz (1 reading per second)</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>🧠 Communication Protocol</h3>
+
+    <p>
+        The DHT11 communicates using a single-wire serial protocol. Data is transmitted
+        as a 40-bit packet containing humidity, temperature, and checksum information.
+        The ESP32 reads the packet and verifies the checksum before using the sensor data.
+    </p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Data Field</th>
+                <th>Size</th>
+            </tr>
+            <tr>
+                <td>Humidity Integer Part</td>
+                <td>8 Bits</td>
+            </tr>
+            <tr>
+                <td>Humidity Decimal Part</td>
+                <td>8 Bits</td>
+            </tr>
+            <tr>
+                <td>Temperature Integer Part</td>
+                <td>8 Bits</td>
+            </tr>
+            <tr>
+                <td>Temperature Decimal Part</td>
+                <td>8 Bits</td>
+            </tr>
+            <tr>
+                <td>Checksum</td>
+                <td>8 Bits</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>🌞 Role in Solar Dryer Project</h3>
+
+    <p>
+        In the solar dryer system, the DHT11 continuously monitors environmental conditions
+        inside the drying chamber and sends data to the ESP32 controller for intelligent
+        decision-making.
+    </p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Monitoring Chamber Conditions</td>
+                <td>Measures temperature and humidity inside the dryer.</td>
+            </tr>
+            <tr>
+                <td>Automation Trigger</td>
+                <td>Provides input for controlling fans and heaters.</td>
+            </tr>
+            <tr>
+                <td>Data Display</td>
+                <td>Shows readings on LED Matrix display.</td>
+            </tr>
+            <tr>
+                <td>Cloud Monitoring</td>
+                <td>Data can be sent through ESP32 Wi-Fi to dashboards.</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Solar Dryer Automation Logic</h3>
+
+    <ul>
+        <li>If humidity becomes high, the ESP32 activates the fan through the L298N motor driver.</li>
+        <li>If temperature drops below the required value, the relay module switches the heater ON.</li>
+        <li>Current readings are displayed on the 8×8 LED Matrix display.</li>
+        <li>Sensor data can also be transmitted to cloud platforms for remote monitoring.</li>
+    </ul>
+
+    <h3> Advantages</h3>
+
+    <ul>
+        <li>Simple wiring with only one data pin.</li>
+        <li>Low-cost and easily available.</li>
+        <li>Pre-calibrated from the factory.</li>
+        <li>Suitable for educational and IoT projects.</li>
+        <li>Easy integration with ESP32 and Arduino boards.</li>
+    </ul>
+
+    <h3>⚠️ Limitations</h3>
+
+    <ul>
+        <li>Lower accuracy compared to DHT22 and SHT31 sensors.</li>
+        <li>Slow sampling rate of only 1 reading per second.</li>
+        <li>Limited operating range (0°C–50°C).</li>
+        <li>Humidity range restricted to 20%–90% RH.</li>
+    </ul>
+
+    <h3>📌 DHT11 Pin Configuration</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Pin</th>
+                <th>Name</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>VCC</td>
+                <td>Power Supply (3.3V–5V)</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>DATA</td>
+                <td>Digital Data Output</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>NC</td>
+                <td>Not Connected</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>GND</td>
+                <td>Ground</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Labeled Parts of DHT11 Sensor</h3>
+     <div class="image-container">
+        <img src="img9_d1_w3.png" alt="DHT11 Temperature and Humidity Sensor">
+        <p class="image-caption">Figure 1: DHT11 Temperature & Humidity Sensor</p>
+    </div>
+
+    <ul>
+        <li><strong>VCC:</strong> Power input pin.</li>
+        <li><strong>DATA:</strong> Digital communication pin.</li>
+        <li><strong>NC:</strong> Reserved pin (not connected).</li>
+        <li><strong>GND:</strong> Ground connection.</li>
+        <li><strong>Protective Grid Cover:</strong> Blue casing protecting sensing elements.</li>
+        <li><strong>Humidity Sensing Capacitor:</strong> Detects moisture content in air.</li>
+        <li><strong>NTC Thermistor:</strong> Measures ambient temperature.</li>
+        <li><strong>Internal Microcontroller:</strong> Processes and outputs digital data.</li>
+    </ul>
+
+    <h3>✨ Summary</h3>
+
+    <p>
+        The DHT11 sensor plays a vital role in the solar dryer project by continuously
+        measuring temperature and humidity conditions. The sensor sends real-time data
+        to the ESP32, enabling automated control of fans, heaters, and display systems.
+        Its simplicity, low cost, and ease of integration make it an excellent choice
+        for educational and IoT-based environmental monitoring applications.
+    </p>
+</section>
+
+<!-- L298N Motor Driver Module -->
+<section class="project-section">
+    <h2>L298N Motor Driver Module</h2>
+
+    <h3> Overview</h3>
+    <p>
+        The L298N is a dual H-Bridge motor driver module that enables microcontrollers such as the ESP32
+        to control the direction and speed of DC motors, fans, and other inductive loads. It can drive
+        two motors independently and is widely used in robotics, automation systems, and IoT projects.
+        In the Solar Dryer Project, the L298N controls the airflow fan based on temperature and humidity
+        readings received from the DHT11 sensor.
+    </p>
+
+    <div class="image-container">
+        <img src="img12_d1_w3.jpeg" alt="L298N Motor Driver Module">
+
+        <p class="image-caption">Figure 1: L298N Motor Driver Module with labeled components</p>
+    </div>
+
+    <h3> Key Components</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>L298N IC</td>
+                <td>Main dual H-Bridge motor driver chip</td>
+            </tr>
+            <tr>
+                <td>IN1 – IN4</td>
+                <td>Input control pins from ESP32</td>
+            </tr>
+            <tr>
+                <td>OUT1 – OUT4</td>
+                <td>Motor output terminals</td>
+            </tr>
+            <tr>
+                <td>ENA / ENB</td>
+                <td>Enable pins for PWM speed control</td>
+            </tr>
+            <tr>
+                <td>12V, 5V, GND</td>
+                <td>Power supply terminals</td>
+            </tr>
+            <tr>
+                <td>Heat Sink</td>
+                <td>Dissipates heat during operation</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>⚡ Electrical Specifications</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Typical Value</th>
+            </tr>
+            <tr>
+                <td>Operating Voltage</td>
+                <td>5V – 35V</td>
+            </tr>
+            <tr>
+                <td>Logic Voltage</td>
+                <td>5V</td>
+            </tr>
+            <tr>
+                <td>Maximum Current per Channel</td>
+                <td>2A</td>
+            </tr>
+            <tr>
+                <td>Number of Channels</td>
+                <td>2 (Motor A & Motor B)</td>
+            </tr>
+            <tr>
+                <td>Control Interface</td>
+                <td>Digital + PWM</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Working Principle</h3>
+
+    <p>
+        The L298N uses dual H-Bridge circuits to control motor rotation direction and speed.
+        By changing the logic levels of the input pins, the current flow through the motor
+        can be reversed, allowing forward and backward rotation.
+    </p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>IN1</th>
+                <th>IN2</th>
+                <th>Motor Direction</th>
+            </tr>
+            <tr>
+                <td>HIGH</td>
+                <td>LOW</td>
+                <td>Forward</td>
+            </tr>
+            <tr>
+                <td>LOW</td>
+                <td>HIGH</td>
+                <td>Reverse</td>
+            </tr>
+            <tr>
+                <td>HIGH</td>
+                <td>HIGH</td>
+                <td>Stop / Brake</td>
+            </tr>
+            <tr>
+                <td>LOW</td>
+                <td>LOW</td>
+                <td>Stop</td>
+            </tr>
+        </table>
+    </div>
+
+    <p>
+        Speed control is achieved using PWM signals applied to the ENA and ENB pins.
+        Higher duty cycles result in faster motor speeds, while lower duty cycles reduce speed.
+    </p>
+
+    <h3> Role in Solar Dryer Project</h3>
+
+    <p>
+        The L298N acts as the motor control interface between the ESP32 and the ventilation fan
+        inside the solar dryer. Based on environmental conditions detected by the DHT11 sensor,
+        the ESP32 adjusts airflow to maintain efficient drying conditions.
+    </p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Fan Control</td>
+                <td>Drives the ventilation fan inside the dryer</td>
+            </tr>
+            <tr>
+                <td>Airflow Regulation</td>
+                <td>Adjusts airflow based on humidity and temperature</td>
+            </tr>
+            <tr>
+                <td>Automation</td>
+                <td>Receives commands directly from ESP32</td>
+            </tr>
+            <tr>
+                <td>Energy Management</td>
+                <td>Runs fan only when necessary to save power</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Example Control Logic</h3>
+
+    <ul>
+        <li>If humidity is greater than <strong>70%</strong>, fan runs at high speed.</li>
+        <li>If humidity is between <strong>50%–70%</strong>, fan runs at medium speed.</li>
+        <li>If temperature exceeds <strong>45°C</strong>, fan speed is reduced or stopped.</li>
+        <li>ESP32 continuously updates fan operation based on DHT11 readings.</li>
+    </ul>
+
+    <h3>📌 Pin Description</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Pin</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>IN1</td>
+                <td>Motor A Direction Control 1</td>
+            </tr>
+            <tr>
+                <td>IN2</td>
+                <td>Motor A Direction Control 2</td>
+            </tr>
+            <tr>
+                <td>IN3</td>
+                <td>Motor B Direction Control 1</td>
+            </tr>
+            <tr>
+                <td>IN4</td>
+                <td>Motor B Direction Control 2</td>
+            </tr>
+            <tr>
+                <td>ENA</td>
+                <td>Motor A PWM Speed Control</td>
+            </tr>
+            <tr>
+                <td>ENB</td>
+                <td>Motor B PWM Speed Control</td>
+            </tr>
+            <tr>
+                <td>OUT1, OUT2</td>
+                <td>Motor A Output Terminals</td>
+            </tr>
+            <tr>
+                <td>OUT3, OUT4</td>
+                <td>Motor B Output Terminals</td>
+            </tr>
+            <tr>
+                <td>12V</td>
+                <td>Motor Power Supply Input</td>
+            </tr>
+            <tr>
+                <td>5V</td>
+                <td>Logic Power Supply</td>
+            </tr>
+            <tr>
+                <td>GND</td>
+                <td>Ground Connection</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Labeled Components</h3>
+    <img src="img11_d1_w3.png"
+    
+    <ul>
+        <li><strong>IN1–IN4:</strong> Input control pins from ESP32 for motor direction.</li>
+        <li><strong>ENA / ENB:</strong> Enable pins for PWM speed control.</li>
+        <li><strong>OUT1–OUT4:</strong> Output terminals connected to motors or fans.</li>
+        <li><strong>12V, 5V, GND:</strong> Power supply terminals.</li>
+        <li><strong>Heat Sink:</strong> Dissipates heat generated by the L298N IC.</li>
+        <li><strong>L298N IC:</strong> Main motor driver chip performing H-Bridge switching.</li>
+    </ul>
+
+    <h3> Advantages</h3>
+
+    <ul>
+        <li>Can drive two DC motors independently.</li>
+        <li>Supports PWM speed control.</li>
+        <li>Compatible with ESP32 and Arduino platforms.</li>
+        <li>Includes protection diodes for back-EMF.</li>
+        <li>Simple wiring and easy integration.</li>
+    </ul>
+
+    <h3>⚠️ Precautions</h3>
+
+    <ul>
+        <li>Always use a heat sink for long-duration operation.</li>
+        <li>Do not exceed 2A current per channel.</li>
+        <li>Verify motor polarity before powering the circuit.</li>
+        <li>Ensure adequate ventilation during continuous operation.</li>
+        <li>Use proper power supply ratings for motors.</li>
+    </ul>
+
+    <h3> Summary</h3>
+
+    <p>
+        The L298N Motor Driver Module serves as the actuator control unit of the solar dryer system.
+        It receives commands from the ESP32 and regulates fan operation to maintain proper airflow
+        and drying conditions. By providing reliable motor control, speed adjustment, and direction
+        management, the L298N plays a critical role in achieving efficient and automated solar drying.
+    </p>
+</section>
+
+<!-- Relay Module -->
+<section class="project-section">
+    <h2>Relay Module</h2>
+
+    <h3> Overview</h3>
+    <p>
+        A relay module is an electrically operated switch that allows low-voltage circuits
+        such as the ESP32's 3.3V logic to control high-voltage devices including heaters,
+        fans, lamps, and other electrical appliances. It acts as an interface between the
+        microcontroller and the power circuit, providing electrical isolation and improved safety.
+    </p>
+
+    <div class="image-container">
+        <img src="img14_d1_w3.jpeg" alt="Relay Module">
+
+        <p class="image-caption">Figure 1: Relay Module with labeled components</p>
+    </div>
+
+    <h3> Key Components</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>Electromagnetic Coil</td>
+                <td>Creates magnetic field to switch contacts</td>
+            </tr>
+            <tr>
+                <td>COM Terminal</td>
+                <td>Common terminal of load circuit</td>
+            </tr>
+            <tr>
+                <td>NO Terminal</td>
+                <td>Normally Open contact</td>
+            </tr>
+            <tr>
+                <td>NC Terminal</td>
+                <td>Normally Closed contact</td>
+            </tr>
+            <tr>
+                <td>Transistor Driver</td>
+                <td>Amplifies ESP32 control signal</td>
+            </tr>
+            <tr>
+                <td>Protection Diode</td>
+                <td>Protects against back EMF voltage spikes</td>
+            </tr>
+            <tr>
+                <td>Indicator LED</td>
+                <td>Shows relay activation status</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>⚡ Electrical Specifications</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Typical Value</th>
+            </tr>
+            <tr>
+                <td>Operating Voltage</td>
+                <td>5V DC</td>
+            </tr>
+            <tr>
+                <td>Trigger Voltage</td>
+                <td>3.3V – 5V</td>
+            </tr>
+            <tr>
+                <td>Maximum Load Voltage</td>
+                <td>250V AC / 30V DC</td>
+            </tr>
+            <tr>
+                <td>Maximum Load Current</td>
+                <td>10A</td>
+            </tr>
+            <tr>
+                <td>Isolation</td>
+                <td>Optocoupler (module dependent)</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Working Principle</h3>
+
+    <p>
+        The relay module operates using an electromagnetic switching mechanism. When the ESP32
+        sends a HIGH signal to the relay input pin, the transistor driver activates the relay coil.
+        The energized coil generates a magnetic field that moves the internal switch from the
+        Normally Closed (NC) position to the Normally Open (NO) position.
+    </p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ESP32 Signal</th>
+                <th>Relay State</th>
+                <th>Contact Position</th>
+                <th>Load Status</th>
+            </tr>
+            <tr>
+                <td>HIGH</td>
+                <td>Activated</td>
+                <td>COM → NO</td>
+                <td>ON</td>
+            </tr>
+            <tr>
+                <td>LOW</td>
+                <td>Deactivated</td>
+                <td>COM → NC</td>
+                <td>OFF</td>
+            </tr>
+        </table>
+    </div>
+
+    <p>
+        When the control signal is removed, the coil de-energizes and the switch returns to
+        its original position using an internal spring mechanism.
+    </p>
+
+    <h3> Role in Solar Dryer Project</h3>
+
+    <p>
+        In the solar dryer system, the relay module controls high-power devices such as
+        heating elements and auxiliary fans. It acts as a safe interface between the
+        ESP32 controller and the high-voltage power circuit.
+    </p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Heater Control</td>
+                <td>Turns heating element ON or OFF automatically</td>
+            </tr>
+            <tr>
+                <td>Electrical Isolation</td>
+                <td>Protects ESP32 from high-voltage circuits</td>
+            </tr>
+            <tr>
+                <td>Automation</td>
+                <td>Responds to DHT11 sensor readings</td>
+            </tr>
+            <tr>
+                <td>Energy Efficiency</td>
+                <td>Runs heater only when required</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Example Solar Dryer Logic</h3>
+
+    <ul>
+        <li>If temperature is below <strong>35°C</strong>, relay activates heater.</li>
+        <li>If temperature rises above <strong>45°C</strong>, relay turns heater OFF.</li>
+        <li>DHT11 continuously monitors chamber conditions.</li>
+        <li>ESP32 processes sensor data and controls the relay automatically.</li>
+        <li>L298N manages airflow while relay manages heating.</li>
+    </ul>
+
+    <h3>📌 Relay Terminal Description</h3>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Terminal</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>COM</td>
+                <td>Common terminal for load connection</td>
+            </tr>
+            <tr>
+                <td>NO</td>
+                <td>Normally Open – connected when relay is ON</td>
+            </tr>
+            <tr>
+                <td>NC</td>
+                <td>Normally Closed – connected when relay is OFF</td>
+            </tr>
+            <tr>
+                <td>IN</td>
+                <td>Control signal input from ESP32</td>
+            </tr>
+            <tr>
+                <td>VCC</td>
+                <td>Power supply input (5V)</td>
+            </tr>
+            <tr>
+                <td>GND</td>
+                <td>Ground connection</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3> Labeled Relay Module Components</h3>
+    <img src="img13_d1_w3.png" alt="Labeled Relay Module Components" class="step-image">
+    <ul>
+        <li><strong>COM (Common):</strong> Central terminal for load connection.</li>
+        <li><strong>NO (Normally Open):</strong> Connects to COM when relay is activated.</li>
+        <li><strong>NC (Normally Closed):</strong> Connected to COM when relay is inactive.</li>
+        <li><strong>IN:</strong> Input control signal from ESP32.</li>
+        <li><strong>VCC:</strong> Power supply terminal.</li>
+        <li><strong>GND:</strong> Ground terminal.</li>
+        <li><strong>Electromagnetic Coil:</strong> Generates magnetic field for switching.</li>
+        <li><strong>Indicator LED:</strong> Lights when relay is active.</li>
+        <li><strong>Transistor Driver:</strong> Drives relay coil using low-power signals.</li>
+        <li><strong>Protection Diode:</strong> Suppresses voltage spikes during switching.</li>
+    </ul>
+
+    <h3> Advantages</h3>
+
+    <ul>
+        <li>Provides electrical isolation between control and power circuits.</li>
+        <li>Easy to interface with ESP32 and Arduino boards.</li>
+        <li>Reliable switching of high-voltage loads.</li>
+        <li>Supports automation and remote control applications.</li>
+        <li>Low-cost and widely available.</li>
+    </ul>
+
+    <h3> Precautions</h3>
+
+    <ul>
+        <li>Connect COM, NO, and NC terminals correctly.</li>
+        <li>Never exceed rated voltage or current limits.</li>
+        <li>Use proper insulation when switching AC loads.</li>
+        <li>Keep high-voltage wiring separate from ESP32 circuitry.</li>
+        <li>Always disconnect power before wiring modifications.</li>
+    </ul>
+
+    <h3> Summary</h3>
+
+    <p>
+        The Relay Module serves as the switching and protection unit of the solar dryer system.
+        It allows the ESP32 to safely control high-power devices such as heaters and auxiliary
+        fans while maintaining electrical isolation. By automating heater operation according
+        to temperature readings from the DHT11 sensor, the relay contributes significantly to
+        efficient, reliable, and safe solar drying performance.
+    </p>
+</section>
+
+<section class="project-section">
+    <h2>🔋 LM2596 DC-DC Buck Converter Module</h2>
+
+    <div class="project-card">
+
+        <img src="img8_d1_w3.jpeg" alt="LM2596 Buck Converter Module">
+
+        <h3>🔍 Overview</h3>
+        <p>
+            The LM2596 is a step-down (buck) voltage regulator designed to
+            convert a higher DC voltage into a lower, stable output voltage.
+            It is widely used in embedded systems, IoT projects, robotics,
+            and solar-powered applications. The module is based on the
+            LM2596S-ADJ IC, operating at a switching frequency of 150 kHz,
+            ensuring efficient voltage conversion with minimal heat generation.
+        </p>
+
+        <h3>⚙️ Key Components</h3>
+
+        <ul>
+            <li><strong>LM2596S-ADJ IC:</strong> Main voltage regulator chip.</li>
+            <li><strong>Input Capacitor (100µF 50V):</strong> Smooths incoming voltage.</li>
+            <li><strong>Output Capacitor (220µF 35V):</strong> Stabilizes output voltage.</li>
+            <li><strong>Inductor (470µH):</strong> Maintains current flow during switching.</li>
+            <li><strong>Potentiometer (W103):</strong> Adjusts output voltage manually.</li>
+            <li><strong>Input/Output Terminals:</strong> IN+, IN−, OUT+, OUT− connections.</li>
+        </ul>
+
+        <h3>⚡ Working Principle</h3>
+
+        <p>
+            The LM2596 uses Pulse Width Modulation (PWM) to regulate voltage.
+            It rapidly switches the input voltage ON and OFF while controlling
+            the duty cycle to produce the desired output voltage.
+        </p>
+
+        <p>
+            The inductor stores energy and maintains current flow, while the
+            capacitors smooth the switching pulses into a stable DC output.
+            Efficiency typically ranges from 75% to 90%.
+        </p>
+
+        <h3>🔌 Electrical Specifications</h3>
+
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Typical Value</th>
+            </tr>
+            <tr>
+                <td>Input Voltage</td>
+                <td>4V – 40V DC</td>
+            </tr>
+            <tr>
+                <td>Output Voltage</td>
+                <td>1.23V – 37V DC (Adjustable)</td>
+            </tr>
+            <tr>
+                <td>Output Current</td>
+                <td>Up to 3A</td>
+            </tr>
+            <tr>
+                <td>Efficiency</td>
+                <td>75% – 90%</td>
+            </tr>
+            <tr>
+                <td>Switching Frequency</td>
+                <td>150 kHz</td>
+            </tr>
+            <tr>
+                <td>Operating Temperature</td>
+                <td>-40°C to +125°C</td>
+            </tr>
+        </table>
+
+        <h3>🧠 Applications</h3>
+
+        <ul>
+            <li>Power supply for ESP32 and Arduino boards.</li>
+            <li>Battery-powered embedded systems.</li>
+            <li>Robotics and automation projects.</li>
+            <li>LED displays and sensor modules.</li>
+            <li>Solar-powered devices and renewable energy systems.</li>
+        </ul>
+
+        <h3>🌞 Role in Solar Dryer System</h3>
+
+        <p>
+            The LM2596 acts as the power management unit of the solar dryer.
+            It converts fluctuating solar panel voltage into a stable output
+            suitable for electronic modules.
+        </p>
+
+        <ul>
+            <li>Provides regulated power to the ESP32.</li>
+            <li>Supplies stable voltage to DHT11 sensors.</li>
+            <li>Powers the LED Matrix display.</li>
+            <li>Supports relay modules and motor driver circuits.</li>
+            <li>Improves efficiency by minimizing power losses.</li>
+        </ul>
+
+        <h3>🔋 Working Process</h3>
+
+        <ol>
+            <li>Solar panel or battery supplies 12V–18V DC input.</li>
+            <li>LM2596 receives the raw voltage.</li>
+            <li>PWM switching regulates the voltage level.</li>
+            <li>Inductor and capacitors smooth the output.</li>
+            <li>Potentiometer adjusts the desired voltage.</li>
+            <li>Stable power is distributed to all modules.</li>
+        </ol>
+
+        <h3>🖼️ Labeled LM2596 Module</h3>
+
+        <img src="img7_d1_w3.png" alt="LM2596 Labeled Diagram">
+
+        <ul>
+            <li><strong>LM2596 IC:</strong> Core voltage regulator chip.</li>
+            <li><strong>Input Capacitor (100µF 50V):</strong> Filters input voltage.</li>
+            <li><strong>Output Capacitor (220µF 35V):</strong> Stabilizes output voltage.</li>
+            <li><strong>Inductor (470µH):</strong> Stores and transfers energy.</li>
+            <li><strong>Potentiometer (W103):</strong> Adjusts output voltage.</li>
+            <li><strong>IN+ / IN−:</strong> Input terminals.</li>
+            <li><strong>OUT+ / OUT−:</strong> Output terminals.</li>
+        </ul>
+
+        <h3>🧩 Advantages</h3>
+
+        <ul>
+            <li>High efficiency with low heat generation.</li>
+            <li>Adjustable output voltage.</li>
+            <li>Compact and lightweight design.</li>
+            <li>Reliable for continuous operation.</li>
+            <li>Suitable for solar-powered applications.</li>
+        </ul>
+
+        <h3>⚠️ Precautions</h3>
+
+        <ul>
+            <li>Always verify polarity before connecting.</li>
+            <li>Do not exceed 3A output current.</li>
+            <li>Use a heat sink for high-current loads.</li>
+            <li>Adjust output voltage before connecting electronics.</li>
+        </ul>
+
+        <h3>✅ Summary</h3>
+
+        <p>
+            The LM2596 DC-DC Buck Converter is the heart of the power supply
+            system in the solar dryer project. It converts higher solar panel
+            voltage into stable and usable power for the ESP32, DHT11 sensor,
+            relay module, LED matrix display, and L298N motor driver, ensuring
+            reliable performance, energy efficiency, and system safety.
+        </p>
+
+    </div>
+</section>
+
+<section class="project-section">
+    <h2> LED Matrix Display Module</h2>
+
+    <div class="project-card">
+        <img src="img16_d1_w3.jpeg" alt="LED Matrix Display Module">
+
+        <h3>🔍 Overview</h3>
+        <p>
+            The LED Matrix is a grid of LEDs arranged in rows and columns
+            (commonly 8×8 or 8×32). It displays characters, numbers, and symbols
+            by lighting specific LEDs. In the solar dryer project, it shows
+            real-time temperature, humidity, and system alerts from the ESP32.
+        </p>
+
+        <h3>🧩 Key Components</h3>
+        <ul>
+            <li><strong>LED Grid:</strong> Visible array of LEDs forming text and symbols.</li>
+            <li><strong>MAX7219 / MAX7221 Driver IC:</strong> Controls LEDs through SPI communication.</li>
+            <li><strong>Input Pins:</strong> VCC, GND, DIN, CS, CLK.</li>
+            <li><strong>Resistors & Capacitors:</strong> Stabilize voltage and brightness.</li>
+        </ul>
+
+        <h3>⚡ Electrical Specifications</h3>
+
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Typical Value</th>
+            </tr>
+            <tr>
+                <td>Operating Voltage</td>
+                <td>3.3V – 5V</td>
+            </tr>
+            <tr>
+                <td>Communication</td>
+                <td>SPI</td>
+            </tr>
+            <tr>
+                <td>Current Consumption</td>
+                <td>~320mA</td>
+            </tr>
+            <tr>
+                <td>Display Size</td>
+                <td>8×8 or 8×32 LEDs</td>
+            </tr>
+            <tr>
+                <td>Driver IC</td>
+                <td>MAX7219 / MAX7221</td>
+            </tr>
+        </table>
+
+        <h3> Working Principle</h3>
+        <p>
+            The ESP32 sends data to the MAX7219 driver through SPI communication.
+            The driver activates specific LEDs to create characters, numbers,
+            or symbols. Each LED acts as a pixel and can be individually controlled.
+        </p>
+
+        <p>
+            Brightness and refresh rates can be adjusted through software,
+            enabling scrolling text, animations, and sensor value displays.
+        </p>
+
+        <h3> Role in Solar Dryer Project</h3>
+
+        <ul>
+            <li>Displays temperature and humidity readings from DHT11.</li>
+            <li>Shows fan and heater status.</li>
+            <li>Provides warning messages and alerts.</li>
+            <li>Offers user feedback without requiring a mobile app.</li>
+        </ul>
+
+        <h3> Advantages</h3>
+
+        <ul>
+            <li>Compact and energy efficient.</li>
+            <li>Easy integration with ESP32.</li>
+            <li>Supports scrolling text and animations.</li>
+            <li>Reliable real-time information display.</li>
+        </ul>
+
+        <h3> Precautions</h3>
+
+        <ul>
+            <li>Use regulated 5V power supply.</li>
+            <li>Keep SPI wires short to reduce noise.</li>
+            <li>Ensure proper grounding.</li>
+            <li>Avoid reverse polarity connections.</li>
+        </ul>
+
+        <h3> Labeled LED Matrix Module</h3>
+
+        <img src="img15_d1_w3.png" alt="LED Matrix Labeled Diagram">
+
+        <ul>
+            <li><strong>LED Grid (8×8 / 8×32):</strong> Forms characters and symbols.</li>
+            <li><strong>MAX7219 Driver IC:</strong> Controls the LED matrix.</li>
+            <li><strong>DIN:</strong> Serial data input from ESP32.</li>
+            <li><strong>CS:</strong> Chip select signal.</li>
+            <li><strong>CLK:</strong> Clock signal.</li>
+            <li><strong>VCC:</strong> Power supply input.</li>
+            <li><strong>GND:</strong> Ground connection.</li>
+            <li><strong>Resistors & Capacitors:</strong> Voltage and brightness stabilization.</li>
+        </ul>
+
+        <h3> Summary</h3>
+
+        <p>
+            The LED Matrix Display serves as the visual interface of the solar
+            dryer system. By displaying temperature, humidity, fan status,
+            heater status, and warning messages, it improves usability and
+            monitoring. Combined with the ESP32, DHT11, L298N, Relay Module,
+            and LM2596, it forms an important part of the smart solar dryer
+            ecosystem.
+        </p>
+    </div>
+</section>
+
+ <!-- BUTTON -->
+
+        <a href="../../index.html" class="btn">
+
+            ← Back to Portfolio
+
+        </a>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Nandini Dhonde | Internship Documentation
+
+    </footer>
+
+</body>
+
+</html>

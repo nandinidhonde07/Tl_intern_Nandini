@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SolidWorks Modeling Documentation</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#0f172a;
+            color:white;
+            line-height:1.8;
+        }
+
+        header{
+            background:linear-gradient(to right,#4c1d95,#7c3aed);
+            padding:70px 20px;
+            text-align:center;
+        }
+
+        header h1{
+            font-size:60px;
+            margin-bottom:15px;
+        }
+
+        header p{
+            font-size:22px;
+            color:#ddd6fe;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+            padding:50px 0;
+        }
+
+        .intro{
+            background:#1e293b;
+            padding:40px;
+            border-radius:20px;
+            margin-bottom:50px;
+            box-shadow:0px 0px 20px rgba(124,58,237,0.3);
+        }
+
+        .intro h2{
+            font-size:38px;
+            margin-bottom:20px;
+            color:#c4b5fd;
+        }
+
+        .intro p{
+            font-size:20px;
+            color:#e2e8f0;
+        }
+
+        /* Part section headings */
+        .part-heading{
+            padding:30px 40px;
+            border-radius:20px;
+            margin:60px 0 30px 0;
+            border-left:6px solid #7c3aed;
+            box-shadow:0px 0px 24px rgba(124,58,237,0.35);
+        }
+
+        .part-heading.purple { background:linear-gradient(to right,#3b0764,#4c1d95); border-left-color:#7c3aed; }
+        .part-heading.green  { background:linear-gradient(to right,#14532d,#15803d); border-left-color:#22c55e; }
+        .part-heading.red    { background:linear-gradient(to right,#7f1d1d,#b91c1c); border-left-color:#ef4444; }
+        .part-heading.blue   { background:linear-gradient(to right,#1e3a5f,#1d4ed8); border-left-color:#3b82f6; }
+        .part-heading.orange { background:linear-gradient(to right,#7c2d12,#c2410c); border-left-color:#f97316; }
+        .part-heading.teal   { background:linear-gradient(to right,#134e4a,#0f766e); border-left-color:#14b8a6; }
+        .part-heading.pink   { background:linear-gradient(to right,#500724,#9d174d); border-left-color:#ec4899; }
+
+        .part-heading h2{
+            font-size:34px;
+            color:#ddd6fe;
+            margin-bottom:6px;
+        }
+
+        .part-heading p{
+            font-size:18px;
+            color:#a78bfa;
+        }
+
+        .part-heading.green  p { color:#86efac; }
+        .part-heading.red    p { color:#fca5a5; }
+        .part-heading.blue   p { color:#93c5fd; }
+        .part-heading.orange p { color:#fdba74; }
+        .part-heading.teal   p { color:#99f6e4; }
+        .part-heading.pink   p { color:#fbcfe8; }
+
+        /* Step cards */
+        .step-card{
+            background:#1e293b;
+            margin-bottom:30px;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0px 0px 20px rgba(124,58,237,0.2);
+            transition:0.3s;
+        }
+
+        .step-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .step-title{
+            padding:22px;
+            display:flex;
+            align-items:center;
+            gap:14px;
+        }
+
+        .step-title.purple { background:#7c3aed; }
+        .step-title.green  { background:#15803d; }
+        .step-title.red    { background:#b91c1c; }
+        .step-title.blue   { background:#1d4ed8; }
+        .step-title.orange { background:#c2410c; }
+        .step-title.teal   { background:#0f766e; }
+        .step-title.pink   { background:#9d174d; }
+
+        .step-title .step-num{
+            background:rgba(255,255,255,0.15);
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            font-size:18px;
+            flex-shrink:0;
+        }
+
+        .step-title h2{
+            font-size:26px;
+        }
+
+        .step-content{
+            padding:30px;
+        }
+
+        .step-content p{
+            font-size:20px;
+            color:#e2e8f0;
+        }
+
+        .step-content img{
+            width:100%;
+            border-radius:15px;
+            border:3px solid #7c3aed;
+            margin-top:16px;
+        }
+
+        .step-title h2{
+            color:#ffffff;
+            margin:0;
+            font-size:28px;
+            line-height:1.2;
+            letter-spacing:0.02em;
+        }
+
+        .gallery-grid{
+            display:grid;
+            grid-template-columns:1fr;
+            gap:28px;
+            margin:30px 0;
+            justify-items:center;
+        }
+
+        .gallery-grid img,
+        .image-gallery img{
+            width:100%;
+            max-width:720px;
+            height:auto;
+            object-fit:cover;
+            border-radius:15px;
+            border:3px solid #7c3aed;
+        }
+
+        .image-gallery-large{
+            display:flex;
+            justify-content:center;
+            margin:30px 0;
+        }
+
+        .image-gallery-large img{
+            width:100%;
+            max-width:700px;
+            height:auto;
+            object-fit:cover;
+        }
+
+        /* Info box (uses / applications) */
+        .info-box{
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:16px;
+            padding:30px 36px;
+            margin-bottom:30px;
+        }
+
+        .info-box h3{
+            font-size:24px;
+            color:#c4b5fd;
+            margin-bottom:14px;
+        }
+
+        .info-box ul{
+            padding-left:22px;
+        }
+
+        .info-box li{
+            font-size:19px;
+            color:#e2e8f0;
+            margin-bottom:10px;
+        }
+
+        /* Conclusion / Reflection / References */
+        .section-box{
+            background:#1e293b;
+            padding:40px;
+            border-radius:20px;
+            margin-top:50px;
+        }
+
+        .section-box h2{
+            color:#c4b5fd;
+            font-size:35px;
+            margin-bottom:20px;
+        }
+
+        .section-box ul{
+            padding-left:25px;
+        }
+
+        .section-box li{
+            font-size:20px;
+            margin-bottom:15px;
+            color:#e2e8f0;
+        }
+
+        .section-box p{
+            font-size:20px;
+            color:#e2e8f0;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:40px;
+            background:#7c3aed;
+            color:white;
+            text-decoration:none;
+            padding:16px 30px;
+            border-radius:12px;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#6d28d9;
+        }
+
+        .back-btn{
+            display:inline-block;
+            margin:20px 0;
+            background:#1e293b;
+            color:#7c3aed;
+            text-decoration:none;
+            padding:12px 20px;
+            border-radius:8px;
+            font-size:16px;
+            border:2px solid #7c3aed;
+            transition:0.3s;
+        }
+
+        .back-btn:hover{
+            background:#7c3aed;
+            color:white;
+        }
+
+        footer{
+            text-align:center;
+            padding:30px;
+            background:#020617;
+            margin-top:60px;
+            color:#94a3b8;
+        }
+
+        .image-gallery{
+            text-align:center;
+            margin:30px 0;
+        }
+
+        .image-gallery img{
+            width:400px;
+            height:auto;
+            border-radius:15px;
+            border:3px solid #7c3aed;
+            margin:10px;
+            max-width:100%;
+        }
+
+        .image-gallery-large{
+            text-align:center;
+            margin:30px 0;
+        }
+
+        .image-gallery-large img{
+            width:600px;
+            height:auto;
+            border-radius:15px;
+            border:3px solid #7c3aed;
+            margin:10px;
+            max-width:100%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>SolidWorks Modeling</h1>
+        <p>Summer Internship Documentation</p>
+        <a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+    </header>
+
+    <div class="container">
+
+        <!-- INTRODUCTION -->
+        <div class="intro">
+            <h2>Introduction</h2>
+            <p>
+                This documentation covers all SolidWorks 3D modeling tasks completed during the internship session.
+                Components modeled include the Doam Upper Part, Circular Base Plate, Rod, Part A, Part B,
+                GT2 Pulley, Pipe/Doam Part, Curved Tray Component, and Sheet Metal Tray Design.
+                Each part was modeled, dimensioned, annotated, and prepared as a production-ready engineering drawing.
+            </p>
+        </div>
+
+
+        <!-- ===========================
+             PART 1 — DOAM UPPER PART
+        ============================ -->
+        <div class="part-heading purple">
+            <h2>Part 1: Doam Upper Part</h2>
+            <p>Cylindrical extruded component — Ø 250 mm × 1200 mm with recess cut, fillets, and chamfers | Scale 1:20</p>
+        </div>
+
+        <div class="step-card"><div class="step-title purple"><div class="step-num">1</div><h2>Open SolidWorks & Start New Part File</h2></div><div class="step-content"><p>Launched SolidWorks and created a new part file to begin the Doam Upper Part modeling process.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">2</div><h2>Select Top Plane & Begin 2D Sketch</h2></div><div class="step-content"><p>Selected the Top Plane as the reference and opened a new 2D sketch environment.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">3</div><h2>Draw Circle — Ø 250 mm</h2></div><div class="step-content"><p>Drew a circle with a diameter of Ø 250 mm using the Circle sketch tool, centered at the origin.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">4</div><h2>Dimension the Circle</h2></div><div class="step-content"><p>Applied a Smart Dimension of 250 mm to fully define and lock the circle's size in the sketch.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">5</div><h2>Exit Sketch & Open Extrude Boss/Base</h2></div><div class="step-content"><p>Exited the sketch and navigated to Features → Extrude Boss/Base to start the 3D extrusion.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">6</div><h2>Extrude to Height 1200 mm</h2></div><div class="step-content"><p>Set the extrusion depth to 1200 mm and confirmed to create the solid cylindrical body.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">7</div><h2>Apply Cut Extrude — −250 mm</h2></div><div class="step-content"><p>Used Cut Extrude with a depth of −250 mm on the top face to create a recessed pocket in the part.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">8</div><h2>Add Fillets</h2></div><div class="step-content"><p>Applied fillets to break all sharp edges, improving structural integrity and finish quality.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">9</div><h2>Apply Chamfers</h2></div><div class="step-content"><p>Added chamfers where required to ensure proper assembly fit with mating components.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">10</div><h2>Insert Material Properties</h2></div><div class="step-content"><p>Assigned material properties (steel/aluminum) via the Material Editor to reflect design specifications.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">11</div><h2>Add Surface Finish Notes</h2></div><div class="step-content"><p>Added surface finish notations to indicate required finish quality for manufacturing.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">12</div><h2>Save Part — Revision A</h2></div><div class="step-content"><p>Saved the part file with Revision A in the filename to begin proper version control.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">13</div><h2>Insert into Drawing Sheet (A4)</h2></div><div class="step-content"><p>Created a new A4 drawing sheet and inserted the part model to generate standard engineering views.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">14</div><h2>Add Dimensions in Drawing View</h2></div><div class="step-content"><p>Added all critical dimensions to the drawing views using Smart Dimension and Model Items tools.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">15</div><h2>Annotate Tolerances</h2></div><div class="step-content"><p>Annotated linear and angular tolerances to define acceptable variation for manufactured parts.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">16</div><h2>Add Title Block — "Doam Upper Part"</h2></div><div class="step-content"><p>Filled in the drawing title block with the part name "Doam Upper Part," designer name, and date.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">17</div><h2>Insert Weight & Scale (1:20)</h2></div><div class="step-content"><p>Added the computed weight from SolidWorks and set the drawing scale to 1:20 in the title block.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">18</div><h2>Add Manufacturing Notes — Deburr Edges</h2></div><div class="step-content"><p>Included general manufacturing notes such as "Deburr all edges" in the drawing notes section.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">19</div><h2>Add QA & Approval Placeholders</h2></div><div class="step-content"><p>Added QA check and approval signature blocks in the title block area for the review workflow.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">20</div><h2>Save Drawing as PDF</h2></div><div class="step-content"><p>Exported the completed drawing sheet to PDF format for sharing and archiving.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">21</div><h2>Review Extrusion Depth for Accuracy</h2></div><div class="step-content"><p>Revisited the Extrude feature to confirm the 1200 mm depth matched the design specification exactly.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">22</div><h2>Check Cut Feature Alignment</h2></div><div class="step-content"><p>Verified the cut extrude was centered and aligned correctly with the main cylinder body.</p></div></div>
+        <div class="gallery-grid">
+            <img src="dome1.jpeg" alt="Doam Upper Part view 1">
+            <img src="dome2.jpeg" alt="Doam Upper Part view 2">
+            <img src="dome3.jpeg" alt="Doam Upper Part view 3">
+            <img src="dome4.jpeg" alt="Doam Upper Part view 4">
+        </div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">23</div><h2>Verify Fillet Radius</h2></div><div class="step-content"><p>Confirmed that the fillet radius values were consistent and within acceptable design limits.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">24</div><h2>Ensure Proper Scaling in Drawing</h2></div><div class="step-content"><p>Checked that all drawing views rendered correctly at the 1:20 scale without clipping or overlap.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">25</div><h2>Add Section View</h2></div><div class="step-content"><p>Inserted a section view to show the internal recess clearly, improving drawing readability.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">26</div><h2>Add Isometric View for Clarity</h2></div><div class="step-content"><p>Placed an isometric 3D view on the drawing sheet for a clear visual representation of the part.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">27</div><h2>Cross-Check Dimensions with Design Intent</h2></div><div class="step-content"><p>Compared all annotated dimensions on the drawing against the original design requirements.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">28</div><h2>Update Revision History</h2></div><div class="step-content"><p>Logged Revision A details in the revision block, noting changes made and the date of update.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">29</div><h2>Export Final Drawing</h2></div><div class="step-content"><p>Exported the final verified drawing as both a SolidWorks drawing file and a PDF for records.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">30</div><h2>Document Assembly Role</h2></div><div class="step-content"><p>Noted the assembly role of this part: fits with the base plate as the upper mating component.</p></div></div>
+         
+      
+            
+
+
+        <!-- ===========================
+             PART 2 — CIRCULAR BASE PLATE
+        ============================ -->
+        <div class="part-heading purple">
+            <h2>Part 2: Circular Base Plate</h2>
+            <p>Foundation plate — Ø 1200 mm × 25 mm with central hole, fillets, and bolt-hole chamfers | Scale 1:20</p>
+        </div>
+
+        <div class="step-card"><div class="step-title purple"><div class="step-num">1</div><h2>Start New Part in SolidWorks</h2></div><div class="step-content"><p>Opened SolidWorks and created a fresh part file for the Circular Base Plate design.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">2</div><h2>Select Top Plane</h2></div><div class="step-content"><p>Selected the Top Plane as the sketching reference plane to begin the base geometry.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">3</div><h2>Sketch Circle — Ø 1200 mm</h2></div><div class="step-content"><p>Drew a large circle with a diameter of Ø 1200 mm centered at the sketch origin.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">4</div><h2>Dimension the Circle</h2></div><div class="step-content"><p>Applied a Smart Dimension of 1200 mm to fully define and lock the circle geometry.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">5</div><h2>Extrude Thickness — 25 mm</h2></div><div class="step-content"><p>Extruded the circle sketch to a thickness of 25 mm to form the flat base plate body.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">6</div><h2>Apply Central Hole (if Required)</h2></div><div class="step-content"><p>Added a central through-hole using Cut Extrude as required by the assembly design specification.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">7</div><h2>Add Fillets to Edges</h2></div><div class="step-content"><p>Applied fillets to the top and bottom circular edges to remove sharp corners for safety and finish.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">8</div><h2>Apply Chamfers for Bolt Holes</h2></div><div class="step-content"><p>Added chamfers to bolt hole entries to allow proper seating of bolt heads and fasteners.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">9</div><h2>Insert Material Properties</h2></div><div class="step-content"><p>Assigned structural steel as the material to ensure accurate mass and simulation data.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">10</div><h2>Add Surface Finish</h2></div><div class="step-content"><p>Specified the required surface finish on load-bearing and mating faces of the base plate.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">11</div><h2>Save Part</h2></div><div class="step-content"><p>Saved the completed 3D model file with a proper name and revision identifier.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">12</div><h2>Insert into Drawing Sheet</h2></div><div class="step-content"><p>Opened a new drawing sheet and inserted the base plate model to generate standard orthographic views.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">13</div><h2>Add Dimensions</h2></div><div class="step-content"><p>Dimensioned the drawing views including overall diameter, thickness, hole diameter, and bolt circle PCD.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">14</div><h2>Annotate Tolerances</h2></div><div class="step-content"><p>Added geometric and dimensional tolerances for flatness, hole positions, and surface finish requirements.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">15</div><h2>Add Title Block — "Circular Base Plate"</h2></div><div class="step-content"><p>Completed the title block with the part name, part number, and project details.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">16</div><h2>Insert Weight & Scale (1:20)</h2></div><div class="step-content"><p>Inserted the SolidWorks-computed mass value and confirmed the drawing scale is set to 1:20.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">17</div><h2>Add Manufacturing Notes</h2></div><div class="step-content"><p>Added manufacturing notes including deburring requirements and surface treatment specifications.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">18</div><h2>Add QA Placeholders</h2></div><div class="step-content"><p>Inserted QA inspection and approval signature blocks to support the review and sign-off process.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">19</div><h2>Save Drawing as PDF</h2></div><div class="step-content"><p>Exported the complete drawing as a PDF file for distribution to the manufacturing team.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">20</div><h2>Review Extrusion Thickness</h2></div><div class="step-content"><p>Verified that the extruded thickness of 25 mm was accurately reflected in both the model and drawing.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">21</div><h2>Check Hole Placement</h2></div><div class="step-content"><p>Confirmed that all holes were correctly positioned relative to the plate center and bolt circle diameter.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">22</div><h2>Verify Fillet Radius</h2></div><div class="step-content"><p>Checked all fillet radii to ensure consistency and compatibility with manufacturing capabilities.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">23</div><h2>Ensure Proper Scaling</h2></div><div class="step-content"><p>Reviewed all drawing views to confirm correct 1:20 scaling with no distortion or misalignment.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">24</div><h2>Add Section View</h2></div><div class="step-content"><p>Inserted a section view to clearly show the plate thickness and hole profiles in the drawing.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">25</div><h2>Add Isometric View</h2></div><div class="step-content"><p>Added an isometric 3D view to the drawing sheet for easy visual understanding of the part geometry.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">26</div><h2>Cross-Check with Assembly</h2></div><div class="step-content"><p>Compared base plate dimensions with the full assembly drawing to confirm proper interface fit.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">27</div><h2>Update Revision History</h2></div><div class="step-content"><p>Updated the revision block with current revision details, author, and modification summary.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">28</div><h2>Export Final Drawing</h2></div><div class="step-content"><p>Exported the finalized drawing in both SolidWorks format and PDF for project documentation records.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">29</div><h2>Document Role — Foundation Plate</h2></div><div class="step-content"><p>Documented the role: serves as the foundation plate supporting all upper assembly components.</p></div></div>
+        <div class="step-card"><div class="step-title purple"><div class="step-num">30</div><h2>Note Load-Bearing Capacity</h2></div><div class="step-content"><p>Recorded the calculated load-bearing capacity of the base plate based on material properties and geometry.</p></div></div>
+        <div class="image-gallery-large">
+            <img src="circular_base_plate.jpeg" alt="Circular Base Plate">
+        </div>
+
+
+        <!-- ===========================
+             SECTION 1 — ROD
+        ============================ -->
+        <div class="part-heading orange">
+            <h2>Section 1: Rod</h2>
+            <p>Stepped profile structural element — Thin Extrude with mid-plane option | Depth: 2.50 cm</p>
+        </div>
+
+        <div class="step-card"><div class="step-title orange"><div class="step-num">1</div><h2>Open SolidWorks & Start New Part File</h2></div><div class="step-content"><p>Launched SolidWorks and created a new part file to begin designing the Rod structural element.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">2</div><h2>Select Sketching Plane</h2></div><div class="step-content"><p>Selected the Front Plane as the reference to draw the stepped profile of the rod.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">3</div><h2>Draw Stepped Profile Sketch</h2></div><div class="step-content"><p>Drew the stepped horizontal profile with precise dimensions: 21.50, 28.50, 35.50, and 42.50 mm horizontally with 12.00 mm vertical height.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">4</div><h2>Apply Smart Dimensions to All Steps</h2></div><div class="step-content"><p>Applied Smart Dimensions to each step of the profile to ensure fully defined parametric control.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">5</div><h2>Define Offsets — 2.00 mm & 2.50 mm</h2></div><div class="step-content"><p>Set offsets of 2.00 mm and 2.50 mm to define alignment of the profile with the origin.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">6</div><h2>Exit Sketch & Open Extrude Feature</h2></div><div class="step-content"><p>Exited the sketch and navigated to the Thin Extrude option under Extrude Boss/Base.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">7</div><h2>Apply Thin Extrude — Mid-Plane — 2.50 cm</h2></div><div class="step-content"><p>Selected the Thin Extrude option with Mid-Plane direction and set depth to 2.50 cm, creating the rod-like stepped structure.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">8</div><h2>Verify Extrusion Symmetry</h2></div><div class="step-content"><p>Confirmed that the mid-plane extrusion was symmetric on both sides of the sketch plane.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">9</div><h2>Review Step Dimensions</h2></div><div class="step-content"><p>Reviewed all step heights and widths to confirm they matched the intended design values.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">10</div><h2>Document Assembly Role</h2></div><div class="step-content"><p>Noted the assembly role of the rod: serves as the base structural element supporting the overall assembly.</p></div></div>
+        <div class="image-gallery">
+            <img src="ROD SKECH.jpeg" alt="Rod Sketch">
+            <img src="ROD 3D.jpeg" alt="Rod 3D Model">
+        </div>
+
+        <!-- ===========================
+             SECTION 2 — PART A
+        ============================ -->
+        <div class="part-heading green">
+            <h2>Section 2: Part A</h2>
+            <p>Curved connector/joint piece — R3.50 base curve, cylindrical protrusion Ø1.85, drilled hole Ø1.50 × 3.10 cm</p>
+        </div>
+
+        <div class="step-card"><div class="step-title green"><div class="step-num">1</div><h2>Start New Part & Select Sketch Plane</h2></div><div class="step-content"><p>Created a new part file and selected the appropriate plane to begin the curved base sketch for Part A.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">2</div><h2>Draw Curved Sketch — Radius R3.50, Thickness 0.29</h2></div><div class="step-content"><p>Drew the initial curved sketch profile with radius R3.50 and a wall thickness of 0.29, defining the connector base.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">3</div><h2>Apply Boss-Extrude — Blind 2.50 cm</h2></div><div class="step-content"><p>Applied Boss-Extrude with Blind depth of 2.50 cm to create the main 3D curved body of Part A.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">4</div><h2>Apply Secondary Extrusion — 0.10 cm</h2></div><div class="step-content"><p>Added a secondary Boss-Extrude of 0.10 cm depth to form a small raised feature on the curved base.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">5</div><h2>Add Circular Feature — Ø1.85 at One End</h2></div><div class="step-content"><p>Sketched and added a circular boss feature of diameter Ø1.85 mm at the end of the curved body.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">6</div><h2>Apply Boss-Extrude for Cylindrical Protrusion — Ø1.85 × 2.60 cm</h2></div><div class="step-content"><p>Used Boss-Extrude to create a cylindrical protrusion of diameter Ø1.85 mm and depth 2.60 cm at the end.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">7</div><h2>Apply Cut-Extrude — Ø1.50 Hole × 3.10 cm</h2></div><div class="step-content"><p>Applied Cut-Extrude with a diameter of Ø1.50 mm and depth of 3.10 cm using the "Flip side to cut" option to create the drilled hole.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">8</div><h2>Verify Final Geometry</h2></div><div class="step-content"><p>Reviewed the final model showing the curved base with cylindrical extension and drilled through-hole.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">9</div><h2>Ensure Fully Defined Sketches</h2></div><div class="step-content"><p>Confirmed all sketches in the design tree were fully defined to ensure stability and prevent rebuild errors.</p></div></div>
+        <div class="gallery-grid">
+            <img src="part0 (1).jpeg" alt="Part A Assembly Image 1">
+            <img src="part0 (2).jpeg" alt="Part A Assembly Image 2">
+            <img src="part0 (3).jpeg" alt="Part A Assembly Image 3">
+            <img src="part0 (4).jpeg" alt="Part A Assembly Image 4">
+            <img src="part0 (5).jpeg" alt="Part A Assembly Image 5">
+            <img src="part0.1 (6).jpeg" alt="Part A Assembly Image 6">
+        </div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">10</div><h2>Document Assembly Role</h2></div><div class="step-content"><p>Noted the assembly role of Part A: functions as a connector or joint piece between structural members.</p></div></div>
+
+
+        <!-- ===========================
+             SECTION 3 — PART B
+        ============================ -->
+        <div class="part-heading red">
+            <h2>Section 3: Part B</h2>
+            <p>Hollow cylindrical pipe/sleeve — Ø25.00 outer, offset 0.30 inner, length 40 cm with Ø2.50 through-hole</p>
+        </div>
+
+        <div class="step-card"><div class="step-title red"><div class="step-num">1</div><h2>Start New Part & Select Sketch Plane</h2></div><div class="step-content"><p>Created a new part file and selected the Top Plane to begin sketching the cylindrical pipe profile.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">2</div><h2>Draw Concentric Circles — Ø25.00 Outer, Offset 0.30 Inner</h2></div><div class="step-content"><p>Drew two concentric circles: outer diameter Ø25.00 mm and an inner circle offset by 0.30 mm to define wall thickness.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">3</div><h2>Apply Smart Dimensions to Both Circles</h2></div><div class="step-content"><p>Dimensioned both circles and confirmed concentricity using construction lines centered at the origin.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">4</div><h2>Apply Boss-Extrude — Blind 40.00 cm</h2></div><div class="step-content"><p>Extruded the concentric ring profile to a Blind depth of 40.00 cm, creating the long hollow cylindrical pipe body.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">5</div><h2>Apply Boss-Extrude2 — Inner Hollow Section 1.00 cm</h2></div><div class="step-content"><p>Added a secondary Boss-Extrude of 1.00 cm depth for the inner hollow section with merge result enabled.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">6</div><h2>Create Secondary Sketch — Ø2.50 mm</h2></div><div class="step-content"><p>Created a new sketch on the pipe face with a Ø2.50 mm circle for the through-hole cut feature.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">7</div><h2>Apply Cut-Extrude — Through All</h2></div><div class="step-content"><p>Applied Cut-Extrude with "Through All" direction using the Ø2.50 mm sketch to create a full penetration bore.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">8</div><h2>Add Secondary Blind Cut — Depth 3.40 cm</h2></div><div class="step-content"><p>Applied an additional Blind cut of 3.40 cm depth and ensured concentricity of all cut features.</p></div></div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">9</div><h2>Verify Fully Defined Sketches</h2></div><div class="step-content"><p>Confirmed all sketches were fully defined with no under-constrained elements to prevent rebuild errors.</p></div></div>
+        <div class="gallery-grid">
+            <img src="not_pipe_dome (1).jpeg" alt="Part B Assembly Image 1">
+            <img src="not_pipe_dome (2).jpeg" alt="Part B Assembly Image 2">
+            <img src="not_pipe_dome (3).jpeg" alt="Part B Assembly Image 3">
+            <img src="not_pipe_dome (4).jpeg" alt="Part B Assembly Image 4">
+            <img src="not_pipe_dome (5).jpeg" alt="Part B Assembly Image 5">
+        </div>
+        <div class="step-card"><div class="step-title red"><div class="step-num">10</div><h2>Document Assembly Role</h2></div><div class="step-content"><p>Noted the assembly role of Part B: functions as a pipe or sleeve — a hollow cylindrical structural connector.</p></div></div>
+
+
+        <!-- ===========================
+             GT2 PULLEY
+        ============================ -->
+        <div class="part-heading blue">
+            <h2>GT2 Pulley — 10 mm Diameter</h2>
+            <p>Belt-driven timing pulley for 3D printers, CNC machines & robotics | Scale 1:5</p>
+        </div>
+
+        <div class="info-box">
+            <h3>What It Is & Where It Is Used</h3>
+            <ul>
+                <li>A GT2 timing pulley used in belt-driven systems for precise rotational motion transfer via toothed belt profiles.</li>
+                <li>3D printers — X/Y axis movement control.</li>
+                <li>CNC machines — precise linear motion via belt drive.</li>
+                <li>Robotics — belt-driven joint actuation.</li>
+                <li>Automation systems requiring accurate torque and speed transfer.</li>
+            </ul>
+        </div>
+
+        <div class="step-card"><div class="step-title blue"><div class="step-num">1</div><h2>Start with 2D Sketch — Circle Ø10.00 mm</h2></div><div class="step-content"><p>Drew a 2D circle of diameter Ø10.00 mm centered at the origin as the pulley base profile.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">2</div><h2>Define Centerlines for Symmetry</h2></div><div class="step-content"><p>Added construction centerlines through the origin to ensure symmetric feature placement around the pulley.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">3</div><h2>Apply Smart Dimension to Lock Diameter</h2></div><div class="step-content"><p>Applied a Smart Dimension of 10.00 mm to fully define and lock the circle diameter.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">4</div><h2>Extrude Boss/Base — 0.50 cm Thickness</h2></div><div class="step-content"><p>Extruded the circle to a thickness of 0.50 cm to form the base disk of the pulley.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">5</div><h2>Create Secondary Sketch — Ø9.00 mm Shaft Hole</h2></div><div class="step-content"><p>Created a secondary concentric sketch of Ø9.00 mm on the pulley face to define the shaft bore.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">6</div><h2>Extrude Blind — 1.00 cm Shaft Extension</h2></div><div class="step-content"><p>Applied a Blind extrusion of 1.00 cm to generate the central shaft hub of the pulley.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">7</div><h2>Add Cylindrical Shaft Extension</h2></div><div class="step-content"><p>Built the cylindrical shaft extension feature to interface with the motor or bearing in the assembly.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">8</div><h2>Sketch Teeth Pattern Around Circumference</h2></div><div class="step-content"><p>Sketched the GT2 tooth profile along the outer circumference of the pulley for belt engagement.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">9</div><h2>Use Circular Pattern Tool for Even Spacing</h2></div><div class="step-content"><p>Applied the Circular Pattern feature to evenly space the tooth profile around the full 360° circumference.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">10</div><h2>Apply Cut-Extrude to Form Belt Grooves</h2></div><div class="step-content"><p>Used Cut-Extrude on the patterned tooth sketch to form the precision belt grooves in the pulley.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">11</div><h2>Set Groove Cut Depth — 7.40 cm</h2></div><div class="step-content"><p>Set the Cut-Extrude depth to 7.40 cm to achieve the correct groove depth for GT2 belt seating.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">12</div><h2>Enable Flip Side to Cut Option</h2></div><div class="step-content"><p>Enabled the "Flip side to cut" option to ensure material removal was directed correctly into the pulley body.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">13</div><h2>Add Fillets to Smooth Edges</h2></div><div class="step-content"><p>Applied fillets to all sharp groove and hub edges to improve belt life and reduce stress concentrations.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">14</div><h2>Apply Chamfers for Belt Seating</h2></div><div class="step-content"><p>Added chamfers to the belt-entry edges to guide the belt onto the pulley smoothly during assembly.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">15</div><h2>Insert Material Properties — Aluminum</h2></div><div class="step-content"><p>Assigned aluminum as the material in the Material Editor for accurate weight and dynamic properties.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">16</div><h2>Save Part as "GT2 Pulley 10 dia"</h2></div><div class="step-content"><p>Saved the completed part file as "GT2 pulley 10 dai" with proper naming for assembly identification.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">17</div><h2>Insert into Drawing Sheet (A4)</h2></div><div class="step-content"><p>Created an A4 drawing sheet and inserted the GT2 pulley model to generate engineering views.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">18</div><h2>Add Front, Top & Isometric Views</h2></div><div class="step-content"><p>Placed front, top, and isometric projected views on the drawing sheet for complete documentation.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">19</div><h2>Annotate Dimensions — Ø10, Ø9, Groove Depth</h2></div><div class="step-content"><p>Dimensioned all key features including outer diameter Ø10 mm, shaft hole Ø9 mm, and groove depth.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">20</div><h2>Add Tolerances for Precision Fit</h2></div><div class="step-content"><p>Applied tight dimensional tolerances to ensure accurate belt engagement and shaft fit.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">21</div><h2>Insert Title Block — "GT2 Pulley"</h2></div><div class="step-content"><p>Filled in the title block with the part name "GT2 Pulley," designer name, and project reference.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">22</div><h2>Add Weight & Scale (1:5)</h2></div><div class="step-content"><p>Inserted the SolidWorks-computed weight and set the drawing scale to 1:5 in the title block.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">23</div><h2>Add Manufacturing Notes — Deburr Teeth</h2></div><div class="step-content"><p>Added manufacturing notes specifying deburring of belt groove teeth for safe belt operation.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">24</div><h2>Save Drawing as PDF</h2></div><div class="step-content"><p>Exported the completed GT2 Pulley drawing to PDF format for team distribution and records.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">25</div><h2>Review Extrusion Depth Accuracy</h2></div><div class="step-content"><p>Verified the extrusion depth values in the model matched the design specification exactly.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">26</div><h2>Check Groove Alignment</h2></div><div class="step-content"><p>Confirmed all belt grooves were evenly distributed and aligned around the pulley circumference.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">27</div><h2>Verify Fillet Radius</h2></div><div class="step-content"><p>Checked all fillet radii on groove edges to confirm consistency with the design specification.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">28</div><h2>Ensure Proper Scaling in Drawing</h2></div><div class="step-content"><p>Reviewed all drawing views to confirm correct 1:5 scaling without distortion or overlap.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">29</div><h2>Add Section View Showing Teeth Profile</h2></div><div class="step-content"><p>Inserted a detailed section view to clearly expose the GT2 tooth profile and groove geometry.</p></div></div>
+        <div class="gallery-grid">
+            <img src="GT2pulley (1).jpeg" alt="GT2 Pulley image 1">
+            <img src="GT2pulley (2).jpeg" alt="GT2 Pulley image 2">
+            <img src="GT2pulley (3).jpeg" alt="GT2 Pulley image 3">
+            <img src="GT2pulley (4).jpeg" alt="GT2 Pulley image 4">
+            <img src="GT2pulley (5).jpeg" alt="GT2 Pulley image 5">
+            <img src="GT2pulley (6).jpeg" alt="GT2 Pulley image 6">
+            <img src="GT2pulley (7).jpeg" alt="GT2 Pulley image 7">
+            <img src="GT2pulley (8).jpeg" alt="GT2 Pulley image 8">
+            <img src="GT2pulley (9).jpeg" alt="GT2 Pulley image 9">
+        </div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">30</div><h2>Document Role — Precise Belt-Driven Motion</h2></div><div class="step-content"><p>Documented the role: the pulley ensures precise, backlash-free belt-driven motion in the mechanical system.</p></div></div>
+
+
+        <!-- ===========================
+             PIPE / DOAM PART
+        ============================ -->
+        <div class="part-heading teal">
+            <h2>Pipe / Doam Part</h2>
+            <p>Hollow cylindrical structural sleeve — Ø25.00 outer × 40 cm length with Ø2.50 through-hole | Scale 1:20</p>
+        </div>
+
+        <div class="info-box">
+            <h3>What It Is & Where It Is Used</h3>
+            <ul>
+                <li>A cylindrical pipe-like component with concentric circles, hollow extrusion, and through-hole cuts.</li>
+                <li>As a support rod or structural frame member in assemblies.</li>
+                <li>As a pipe sleeve for airflow channels in solar dryer projects.</li>
+                <li>As a connector between structural modules in mechanical systems.</li>
+                <li>In any assembly requiring a hollow cylindrical part with precise wall thickness.</li>
+            </ul>
+        </div>
+
+        <div class="step-card"><div class="step-title teal"><div class="step-num">1</div><h2>Start New Part & Open Sketch</h2></div><div class="step-content"><p>Created a new part file and opened a sketch on the Top Plane for the concentric circle profile.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">2</div><h2>Draw Concentric Circles — Ø25.00 Outer, Offset 0.30 Inner</h2></div><div class="step-content"><p>Drew the outer circle Ø25.00 mm and offset inner circle by 0.30 mm to define the pipe wall thickness.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">3</div><h2>Add Construction Lines & Smart Dimensions</h2></div><div class="step-content"><p>Added construction centerlines and applied Smart Dimensions to lock both circle diameters.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">4</div><h2>Extrude Boss/Base — Blind 40.00 cm</h2></div><div class="step-content"><p>Extruded the concentric ring sketch to a Blind depth of 40.00 cm, creating the long hollow cylindrical body.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">5</div><h2>Apply Boss-Extrude2 — Inner Hollow Section 1.00 cm</h2></div><div class="step-content"><p>Added a secondary Boss-Extrude of depth 1.00 cm for the inner hollow section with merge result enabled.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">6</div><h2>Create Secondary Sketch — Ø2.50 mm</h2></div><div class="step-content"><p>Sketched a Ø2.50 mm circle on the pipe face to prepare the through-hole cut feature.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">7</div><h2>Apply Cut-Extrude — Through All</h2></div><div class="step-content"><p>Applied Cut-Extrude with "Through All" direction using the Ø2.50 mm circle for full penetration.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">8</div><h2>Add Secondary Blind Cut — Depth 3.40 cm</h2></div><div class="step-content"><p>Added a secondary Blind cut of 3.40 cm to complete the internal bore geometry of the pipe.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">9</div><h2>Ensure Concentricity of All Cuts</h2></div><div class="step-content"><p>Verified concentricity of the outer cylinder, inner hollow, and all cut features using the FeatureManager.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">10</div><h2>Add Fillets to Smooth Edges</h2></div><div class="step-content"><p>Applied fillets to all sharp pipe edges to improve the part's structural finish and assembly safety.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">11</div><h2>Apply Chamfers for Assembly Fit</h2></div><div class="step-content"><p>Added chamfers to pipe entry edges to allow smooth insertion into mating components during assembly.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">12</div><h2>Insert Material Properties — Steel</h2></div><div class="step-content"><p>Assigned steel as the material in the Material Editor to compute accurate mass and structural properties.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">13</div><h2>Save Part as "Pipe Doam"</h2></div><div class="step-content"><p>Saved the completed 3D model with the name "Pipe Doam" for identification within the assembly.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">14</div><h2>Insert into Drawing Sheet (A4)</h2></div><div class="step-content"><p>Created an A4 drawing sheet and inserted Pipe Doam to generate standard engineering views.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">15</div><h2>Add Multiple Views — Front, Top, Isometric</h2></div><div class="step-content"><p>Placed front, top, and isometric projected views on the drawing for complete visual documentation.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">16</div><h2>Annotate Dimensions — Ø25, Ø2.50, Depth</h2></div><div class="step-content"><p>Dimensioned all key features: outer diameter Ø25 mm, bore Ø2.50 mm, and total pipe length 40 cm.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">17</div><h2>Add Tolerances for Concentricity</h2></div><div class="step-content"><p>Applied geometric tolerances for concentricity of inner and outer cylindrical surfaces on the drawing.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">18</div><h2>Insert Title Block — "Pipe Doam"</h2></div><div class="step-content"><p>Completed the drawing title block with the part name "Pipe Doam," designer details, and project reference.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">19</div><h2>Add Weight & Scale (1:20)</h2></div><div class="step-content"><p>Inserted the SolidWorks-computed weight and confirmed the drawing scale is set to 1:20.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">20</div><h2>Add Manufacturing Notes — Deburr Edges</h2></div><div class="step-content"><p>Included manufacturing notes specifying deburring of all bore and pipe end edges.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">21</div><h2>Save Drawing as PDF</h2></div><div class="step-content"><p>Exported the Pipe Doam drawing to PDF format for team distribution and project records.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">22</div><h2>Review Extrusion Depth Accuracy</h2></div><div class="step-content"><p>Verified the 40.00 cm extrusion depth was correctly applied in both the model and drawing views.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">23</div><h2>Check Cut Feature Alignment</h2></div><div class="step-content"><p>Confirmed all cut features were centered and aligned correctly with the pipe's main axis.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">24</div><h2>Verify Fillet Radius</h2></div><div class="step-content"><p>Checked all fillet radii for consistency and compliance with the manufacturing specification.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">25</div><h2>Ensure Proper Scaling in Drawing</h2></div><div class="step-content"><p>Reviewed drawing views to confirm correct 1:20 scale rendering without distortion or overlap.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">26</div><h2>Add Section View for Clarity</h2></div><div class="step-content"><p>Inserted a section view to expose the hollow bore and wall thickness clearly in the drawing.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">27</div><h2>Verify Wall Thickness</h2></div><div class="step-content"><p>Confirmed the wall thickness derived from the 0.30 mm offset was consistent around the full circumference.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">28</div><h2>Cross-Check with Assembly Drawing</h2></div><div class="step-content"><p>Compared pipe dimensions with the assembly drawing to confirm correct fit and clearance values.</p></div></div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">29</div><h2>Export Final Drawing</h2></div><div class="step-content"><p>Exported the finalized Pipe Doam drawing in SolidWorks and PDF formats for complete documentation.</p></div></div>
+        <div class="gallery-grid">
+            <img src="gt3 pulley (1).jpeg" alt="GT3 Pulley Image 1">
+            <img src="gt3 pulley (2).jpeg" alt="GT3 Pulley Image 2">
+            <img src="gt3 pulley (3).jpeg" alt="GT3 Pulley Image 3">
+            <img src="gt3 pulley (4).jpeg" alt="GT3 Pulley Image 4">
+            <img src="gt3 pulley (5).jpeg" alt="GT3 Pulley Image 5">
+            <img src="gt3 pulley (6).jpeg" alt="GT3 Pulley Image 6">
+            <img src="gt3 pulley (7).jpeg" alt="GT3 Pulley Image 7">
+            <img src="gt3 pulley (8).jpeg" alt="GT3 Pulley Image 8">
+            <img src="gt3 pulley (9).jpeg" alt="GT3 Pulley Image 9">
+            <img src="gt3 pulley (10).jpeg" alt="GT3 Pulley Image 10">
+        </div>
+        <div class="step-card"><div class="step-title teal"><div class="step-num">30</div><h2>Document Role — Structural Sleeve or Airflow Channel</h2></div><div class="step-content"><p>Documented the role: acts as a structural sleeve or airflow channel in the solar dryer assembly.</p></div></div>
+
+
+
+        <!-- ===========================
+             SHEET METAL TRAY DESIGN
+        ============================ -->
+        <div class="part-heading pink">
+            <h2>Sheet Metal Tray Design — "Tray 2 60"</h2>
+            <p>Base-Flange + Edge-Flange workflow | Thickness 0.26 cm | Wall height 4 cm | 90° bend angle</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Uses of This Sheet-Metal Tray</h3>
+            <ul>
+                <li>Solar Dryer Trays for Fruits and Vegetables — the primary application in this project.</li>
+                <li>Agricultural Produce, Grain, and Food Processing Drying Systems.</li>
+                <li>Pharmaceutical Drying Trays and Industrial Storage Trays.</li>
+                <li>Electronics Enclosures and Machine Component Collection Trays.</li>
+                <li>Custom Fabricated Equipment and Material Handling Systems.</li>
+            </ul>
+        </div>
+
+        <div class="step-card"><div class="step-title pink"><div class="step-num">1</div><h2>Four Images Show End-to-End Sheet Metal Workflow</h2></div><div class="step-content"><p>The complete design set for "Tray 2 60" demonstrates the full sheet metal part design workflow from sketch to final 3D tray.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">2</div><h2>Image 1 — Base-Flange1 Feature</h2></div><div class="step-content"><p>The first image shows the Base-Flange1 feature — the foundational first step of any SolidWorks sheet metal part.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">3</div><h2>Base Flange Takes 2D Sketch & Adds Uniform Thickness 0.26 cm</h2></div><div class="step-content"><p>Base-Flange converts the 2D sketch profile into a flat metal plate with a uniform material thickness of 0.26 cm.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">4</div><h2>Sheet Metal Parameters — Gauge, Bend Radius, Direction</h2></div><div class="step-content"><p>The Sheet Metal Parameters panel defines the gauge, bend radius, and direction (reverse/symmetric) for all features.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">5</div><h2>Tan/Yellow Preview Shows Flat Sheet Body Being Created</h2></div><div class="step-content"><p>The tan/yellow shaded region in the viewport previews the flat sheet body being built from the sketch contour.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">6</div><h2>Base Flange Sets Global Thickness Inherited by All Features</h2></div><div class="step-content"><p>The thickness defined in the Base Flange is automatically inherited by all subsequent sheet metal features in the part.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">7</div><h2>Image 2 — FeatureManager Design Tree</h2></div><div class="step-content"><p>The second image displays the completed FeatureManager Design Tree showing all features in sequential order.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">8</div><h2>Tree Shows Sheet-Metal, Base-Flange1, Edge-Flange1 & Flat-Pattern</h2></div><div class="step-content"><p>The design tree lists key items: Sheet-Metal master feature, Base-Flange1, Edge-Flange1, and a suppressed Flat-Pattern for fabrication.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">9</div><h2>Cut List & Flat-Pattern Features for Fabrication</h2></div><div class="step-content"><p>The Cut List and Flat-Pattern features are unique to sheet metal parts and provide the cutting layout for laser/CNC machines.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">10</div><h2>Gray Body Confirms Base Flange Built Successfully</h2></div><div class="step-content"><p>The gray shaded body in the viewport confirms the base flange (tray's bottom floor) was built successfully.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">11</div><h2>Material "Not Specified" — Part Needs Further Constraints</h2></div><div class="step-content"><p>At this stage, material is "not specified" and the part is marked "Under Defined," requiring further dimensioning.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">12</div><h2>Image 3 — Edge-Flange1 Feature</h2></div><div class="step-content"><p>The third image shows the Edge-Flange1 feature, which folds the flat plate edges upward to create the tray's side walls.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">13</div><h2>Multiple Edges Selected Simultaneously</h2></div><div class="step-content"><p>Multiple edges of the base flange are selected at once to create all four tray sidewalls in a single operation.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">14</div><h2>Flange Length Set to Blind — 4.00 cm Wall Height</h2></div><div class="step-content"><p>The flange length is set to "Blind" mode with a value of 4.00 cm, giving each wall the required height.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">15</div><h2>Bend Angle — 90° for Perpendicular Walls</h2></div><div class="step-content"><p>The bend angle is set to 90 degrees, producing perpendicular box-like walls on all sides of the tray.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">16</div><h2>Pink Arrows Show Fold-Up Direction</h2></div><div class="step-content"><p>The pink/magenta arrows in the viewport indicate the fold-up direction, and yellow outlines preview the wall geometry.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">17</div><h2>Bend Radius 0.07366 cm — Prevents Material Cracking</h2></div><div class="step-content"><p>The bend radius of 0.07366 cm and relief settings ensure the metal bends without cracking during real-world fabrication.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">18</div><h2>Edge Flange Transforms Flat Panel into 3D Container</h2></div><div class="step-content"><p>This step transforms the flat base panel into a fully enclosed 3D tray with usable depth and volume.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">19</div><h2>Image 4 — Smart Dimension Applied to Base Sketch</h2></div><div class="step-content"><p>The fourth image shows the Smart Dimension tool applied to the original base sketch in the Top view.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">20</div><h2>Dimensions — 28.01, 14.07, 13.62, 12.71 cm Define Tray Footprint</h2></div><div class="step-content"><p>Key dimensions of 28.01 cm, 14.07 cm, 13.62 cm, and 12.71 cm define the exact tray footprint shape.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">21</div><h2>PropertyManager Controls Tolerance, Precision & GD&T</h2></div><div class="step-content"><p>The PropertyManager panel controls tolerance settings, precision (.12), dimension text formatting, and GD&T symbols.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">22</div><h2>Full Dimensioning Removes "Under Defined" Status</h2></div><div class="step-content"><p>Fully dimensioning the sketch removes the "Under Defined" warning and locks the geometry for rebuild stability.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">23</div><h2>Parametric Dimensions Update Entire 3D Model Instantly</h2></div><div class="step-content"><p>All dimensions are parametric — changing any value automatically updates the entire 3D model and all associated views.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">24</div><h2>Logical Workflow: Sketch → Base Flange → Walls → Review</h2></div><div class="step-content"><p>The correct design flow is: dimension sketch (Img 4) → base flange (Img 1) → fold walls (Img 3) → review tree (Img 2).</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">25</div><h2>Sketch Tab & CommandManager Provide All Tools</h2></div><div class="step-content"><p>The Sketch tab and CommandManager ribbon at the top provide all drawing, sheet metal, and dimensioning tools.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">26</div><h2>Triad Confirms 3D Orientation in Modeling Space</h2></div><div class="step-content"><p>The reference triad in the bottom-left corner of the viewport confirms the correct part orientation in 3D modeling space.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">27</div><h2>Status Bar Shows License, Units (CGS) & Edit State</h2></div><div class="step-content"><p>The status bar displays useful session information: license type, units set to CGS, and the current editing state.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">28</div><h2>Features Create Manufacturable Tray with Flat Pattern</h2></div><div class="step-content"><p>Together, all features create a fully manufacturable tray that can be unfolded into a flat pattern for fabrication.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">29</div><h2>Flat Pattern Provides Cutting Layout for Laser/CNC</h2></div><div class="step-content"><p>The flat pattern feature is critical as it provides the exact cutting and bend layout for laser cutting or CNC bending machines.</p></div></div>
+        <div class="step-card"><div class="step-title pink"><div class="step-num">30</div><h2>Core Sheet Metal Principles — Thickness, Bends, Flanges, Parametric Design</h2></div><div class="step-content"><p>This set illustrates core sheet metal design principles — uniform thickness, bend reliefs, edge flanges, and parametric dimensioning — used in real-world product fabrication.</p></div></div>
+
+        <!-- ===========================
+             TRAY 2 — STEP-BY-STEP SOLIDWORKS MODELING
+        ============================ -->
+        <div class="part-heading blue">
+            <h2>Tray 2 — Step-by-Step SolidWorks Modeling</h2>
+            <p>SolidWorks part and drawing workflow for Tray 2, a drying layer in the solar dryer assembly.</p>
+        </div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">1</div><h2>Open SolidWorks and start a new part file</h2></div><div class="step-content"><p>Opened SolidWorks and started a new part file for Tray 2.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">2</div><h2>Select the Top Plane to begin sketching</h2></div><div class="step-content"><p>Selected the Top Plane as the sketch plane for Tray 2.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">3</div><h2>Draw a rectangle 352.68 mm × 347.15 mm</h2></div><div class="step-content"><p>Sketch a rectangle with the specified tray footprint dimensions.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">4</div><h2>Add proper constraints to lock the sketch</h2></div><div class="step-content"><p>Applied constraints to fully control the sketch geometry.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">5</div><h2>Dimension all sides to avoid under-defined geometry</h2></div><div class="step-content"><p>Added dimensions to all sides to fully define the rectangular profile.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">6</div><h2>Exit sketch and use Extrude Boss/Base</h2></div><div class="step-content"><p>Exited the sketch and created a solid feature using Extrude Boss/Base.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">7</div><h2>Extrude to a thickness of 43 mm</h2></div><div class="step-content"><p>Set the extrusion depth to 43 mm to form the tray base.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">8</div><h2>Create a new sketch on the top face</h2></div><div class="step-content"><p>Selected the top face of the solid and opened a new sketch.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">9</div><h2>Draw arcs with radius R125 mm and R472 mm</h2></div><div class="step-content"><p>Drew the required arc geometry on the top face using the specified radii.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">10</div><h2>Position arcs symmetrically along the edges</h2></div><div class="step-content"><p>Aligned the arcs symmetrically to the rectangle edges.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">11</div><h2>Use Trim Entities to remove excess lines</h2></div><div class="step-content"><p>Trimmed unnecessary sketch segments to clean up the profile.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">12</div><h2>Apply Cut Extrude to remove material along arcs</h2></div><div class="step-content"><p>Removed material using Cut Extrude along the drawn arcs.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">13</div><h2>Add fillets to smooth sharp corners</h2></div><div class="step-content"><p>Applied fillets to the cut edges to improve finish quality.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">14</div><h2>Apply chamfers to edges for assembly fit</h2></div><div class="step-content"><p>Added chamfers to selected edges to help assembly fit and handling.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">15</div><h2>Insert material properties (e.g., mild steel)</h2></div><div class="step-content"><p>Assigned mild steel material properties to the Tray 2 model.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">16</div><h2>Add surface finish notes (deburr edges)</h2></div><div class="step-content"><p>Included notes to deburr edges and improve manufacturability.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">17</div><h2>Save part as “Tray 2”</h2></div><div class="step-content"><p>Saved the completed part model with the name Tray 2.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">18</div><h2>Insert into drawing sheet (A4)</h2></div><div class="step-content"><p>Created an A4 drawing sheet and placed the Tray 2 model views.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">19</div><h2>Add front, top, and isometric views</h2></div><div class="step-content"><p>Added multiple views to fully document the tray geometry.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">20</div><h2>Annotate all dimensions (length, width, radius)</h2></div><div class="step-content"><p>Added dimension annotations for all critical features.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">21</div><h2>Add tolerances for linear and angular features</h2></div><div class="step-content"><p>Specified tolerances for the critical dimensions and arcs.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">22</div><h2>Insert title block: “Tray 2”</h2></div><div class="step-content"><p>Completed the title block with Tray 2 name and project data.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">23</div><h2>Add weight and scale (1:5)</h2></div><div class="step-content"><p>Included the part weight and set the drawing scale to 1:5.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">24</div><h2>Add manufacturing notes</h2></div><div class="step-content"><p>Added manufacturing and finishing notes for production readiness.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">25</div><h2>Save drawing as PDF</h2></div><div class="step-content"><p>Exported the Tray 2 drawing to PDF format.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">26</div><h2>Review extrusion depth accuracy</h2></div><div class="step-content"><p>Checked the extrusion depth to confirm it matched 43 mm.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">27</div><h2>Check cut feature alignment</h2></div><div class="step-content"><p>Verified the cut extrude was properly aligned with the tray geometry.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">28</div><h2>Verify fillet radius</h2></div><div class="step-content"><p>Confirmed that fillet radius values were consistent and correct.</p></div></div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">29</div><h2>Ensure proper scaling in drawing</h2></div><div class="step-content"><p>Verified the drawing views were correctly scaled at 1:5.</p></div></div>
+        <div class="gallery-grid">
+            <img src="tray1_1.jpeg" alt="Tray 2 Image 1">
+            <img src="tray1_2.jpeg" alt="Tray 2 Image 2">
+            <img src="tray1_3.jpeg" alt="Tray 2 Image 3">
+            <img src="tray1_4.jpeg" alt="Tray 2 Image 4">
+            <img src="TRAY2_60_1.jpeg" alt="Tray 2 Image 5">
+            <img src="TRAY2_60_2.jpeg" alt="Tray 2 Image 6">
+            <img src="TRAY2_60_3.jpeg" alt="Tray 2 Image 7">
+            <img src="TRAY2_60_4.jpeg" alt="Tray 2 Image 8">
+        </div>
+        <div class="step-card"><div class="step-title blue"><div class="step-num">30</div><h2>Document role: Tray 2 forms one drying layer in solar dryer assembly</h2></div><div class="step-content"><p>Documented Tray 2's role as a drying layer within the solar dryer assembly.</p></div></div>
+
+        <!-- ===========================
+             TRAY 3 — STEP-BY-STEP SOLIDWORKS MODELING
+        ============================ -->
+        <div class="part-heading green">
+            <h2>Tray 3 — Step-by-Step SolidWorks Modeling</h2>
+            <p>SolidWorks part and drawing workflow for Tray 3, a second drying layer in the solar dryer assembly.</p>
+        </div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">1</div><h2>Start a new part in SolidWorks</h2></div><div class="step-content"><p>Opened SolidWorks and started a new part file for Tray 3.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">2</div><h2>Select Top Plane for sketching</h2></div><div class="step-content"><p>Selected the Top Plane as the sketch plane for Tray 3.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">3</div><h2>Draw rectangle 282.51 mm × 276.94 mm</h2></div><div class="step-content"><p>Sketched the Tray 3 base rectangle using the specified dimensions.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">4</div><h2>Fully define sketch with dimensions</h2></div><div class="step-content"><p>Added dimensions to lock the sketch geometry completely.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">5</div><h2>Exit sketch and extrude thickness 43 mm</h2></div><div class="step-content"><p>Extruded the rectangle to a thickness of 43 mm.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">6</div><h2>Create new sketch on top face</h2></div><div class="step-content"><p>Started a new sketch on Tray 3's top face.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">7</div><h2>Draw arcs with radius R128 mm and R402 mm</h2></div><div class="step-content"><p>Added the arc geometry using the specified radii.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">8</div><h2>Position arcs symmetrically</h2></div><div class="step-content"><p>Aligned the arcs symmetrically on the sketch.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">9</div><h2>Trim excess lines</h2></div><div class="step-content"><p>Removed redundant sketch segments with Trim Entities.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">10</div><h2>Apply Cut Extrude to remove material</h2></div><div class="step-content"><p>Used Cut Extrude to remove material defined by the arcs.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">11</div><h2>Add fillets to smooth edges</h2></div><div class="step-content"><p>Added fillets to the cut edges for a smoother finish.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">12</div><h2>Apply chamfers for assembly fit</h2></div><div class="step-content"><p>Added chamfers to help with assembly and handling.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">13</div><h2>Insert material properties</h2></div><div class="step-content"><p>Assigned material properties to the Tray 3 model.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">14</div><h2>Add surface finish notes</h2></div><div class="step-content"><p>Added notes such as deburring and surface finish requirements.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">15</div><h2>Save part as “Tray 3”</h2></div><div class="step-content"><p>Saved the Tray 3 part model with the proper filename.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">16</div><h2>Insert into drawing sheet (A4)</h2></div><div class="step-content"><p>Placed Tray 3 into an A4 drawing sheet.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">17</div><h2>Add multiple views (front, top, isometric)</h2></div><div class="step-content"><p>Added the required drawing views for Tray 3.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">18</div><h2>Annotate dimensions (length, width, radius)</h2></div><div class="step-content"><p>Dimensioned all critical geometric features on the drawing.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">19</div><h2>Add tolerances</h2></div><div class="step-content"><p>Applied manufacturing tolerances to Tray 3 dimensions.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">20</div><h2>Insert title block: “Tray 3”</h2></div><div class="step-content"><p>Completed the drawing title block with Tray 3 information.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">21</div><h2>Add weight (373.48 units) and scale (1:5)</h2></div><div class="step-content"><p>Included the specified weight and set the drawing scale to 1:5.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">22</div><h2>Add manufacturing notes</h2></div><div class="step-content"><p>Added manufacturing notes for the Tray 3 drawing.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">23</div><h2>Save drawing as PDF</h2></div><div class="step-content"><p>Exported the Tray 3 drawing to PDF format.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">24</div><h2>Review extrusion depth</h2></div><div class="step-content"><p>Verified the extrusion depth on the Tray 3 model.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">25</div><h2>Check cut feature alignment</h2></div><div class="step-content"><p>Ensured the cut extrude was aligned correctly with the model geometry.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">26</div><h2>Verify fillet radius</h2></div><div class="step-content"><p>Confirmed the radius values used for fillets were correct.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">27</div><h2>Ensure proper scaling</h2></div><div class="step-content"><p>Verified the drawing scale and view placement for Tray 3.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">28</div><h2>Add section view for clarity</h2></div><div class="step-content"><p>Inserted a section view to clarify internal geometry and feature placement.</p></div></div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">29</div><h2>Export final drawing</h2></div><div class="step-content"><p>Exported the final Tray 3 drawing for documentation.</p></div></div>
+        <div class="gallery-grid">
+            <img src="tray3_1.jpeg" alt="Tray 3 Image 1">
+            <img src="tray3_2.jpeg" alt="Tray 3 Image 2">
+            <img src="tray3_3.jpeg" alt="Tray 3 Image 3">
+            <img src="tray3_4.jpeg" alt="Tray 3 Image 4">
+            <img src="tray3_main.jpeg" alt="Tray 3 Main Image">
+        </div>
+        <div class="step-card"><div class="step-title green"><div class="step-num">30</div><h2>Document role: Tray 3 provides another drying layer, stacked above Tray 2</h2></div><div class="step-content"><p>Documented that Tray 3 functions as an additional drying layer above Tray 2.</p></div></div>
+
+        <!-- ===========================
+             TRAY 4 — STEP-BY-STEP SOLIDWORKS MODELING
+        ============================ -->
+        <div class="part-heading orange">
+            <h2>Tray 4 — Step-by-Step SolidWorks Modeling</h2>
+            <p>SolidWorks part and drawing workflow for Tray 4, the topmost drying tray in the solar dryer assembly.</p>
+        </div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">1</div><h2>Open SolidWorks and start new part</h2></div><div class="step-content"><p>Started a new SolidWorks part file for Tray 4.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">2</div><h2>Select Top Plane for sketch</h2></div><div class="step-content"><p>Selected the Top Plane as the sketch plane.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">3</div><h2>Draw rectangle 210.57 mm × 210.57 mm</h2></div><div class="step-content"><p>Created the square tray footprint using the specified dimensions.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">4</div><h2>Fully define sketch with dimensions</h2></div><div class="step-content"><p>Added dimensions to fully constrain the tray sketch.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">5</div><h2>Exit sketch and extrude thickness 43 mm</h2></div><div class="step-content"><p>Extruded the sketch to a 43 mm thick solid tray base.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">6</div><h2>Create new sketch on top face</h2></div><div class="step-content"><p>Started a new sketch on the top face of the Tray 4 base.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">7</div><h2>Draw arcs with radius R128 mm and R335 mm</h2></div><div class="step-content"><p>Added the arc geometry with the specified radii.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">8</div><h2>Position arcs symmetrically</h2></div><div class="step-content"><p>Aligned the arcs symmetrically on the tray face.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">9</div><h2>Trim excess lines</h2></div><div class="step-content"><p>Trimmed the sketch to remove unnecessary geometry.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">10</div><h2>Apply Cut Extrude to remove material</h2></div><div class="step-content"><p>Removed material with a Cut Extrude defined by the arcs.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">11</div><h2>Add fillets to smooth edges</h2></div><div class="step-content"><p>Added fillets to smooth the cut profile edges.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">12</div><h2>Apply chamfers for assembly fit</h2></div><div class="step-content"><p>Added chamfers to support assembly fit and handling.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">13</div><h2>Insert material properties</h2></div><div class="step-content"><p>Assigned material properties to Tray 4.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">14</div><h2>Add surface finish notes</h2></div><div class="step-content"><p>Included notes describing the required surface finish.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">15</div><h2>Save part as “Tray 4”</h2></div><div class="step-content"><p>Saved the part model using the name Tray 4.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">16</div><h2>Insert into drawing sheet (A4)</h2></div><div class="step-content"><p>Inserted Tray 4 into a new A4 drawing sheet.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">17</div><h2>Add multiple views (front, top, isometric)</h2></div><div class="step-content"><p>Added the standard drawing views for Tray 4.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">18</div><h2>Annotate dimensions (length, width, radius)</h2></div><div class="step-content"><p>Dimensioned all key geometric features on the drawing.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">19</div><h2>Add tolerances</h2></div><div class="step-content"><p>Added tolerance data for manufacturing accuracy.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">20</div><h2>Insert title block: “Tray 4”</h2></div><div class="step-content"><p>Completed the drawing title block for Tray 4.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">21</div><h2>Add weight and scale (1:5)</h2></div><div class="step-content"><p>Included the drawing weight and set the scale to 1:5.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">22</div><h2>Add manufacturing notes</h2></div><div class="step-content"><p>Added manufacturing notes for the Tray 4 drawing.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">23</div><h2>Save drawing as PDF</h2></div><div class="step-content"><p>Saved the Tray 4 drawing as PDF.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">24</div><h2>Review extrusion depth</h2></div><div class="step-content"><p>Reviewed the extrusion depth for Tray 4 model accuracy.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">25</div><h2>Check cut feature alignment</h2></div><div class="step-content"><p>Verified the Cut Extrude alignment on Tray 4.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">26</div><h2>Verify fillet radius</h2></div><div class="step-content"><p>Confirmed that fillets were applied with the correct radius.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">27</div><h2>Ensure proper scaling</h2></div><div class="step-content"><p>Checked that the drawing scaling was correct for Tray 4 views.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">28</div><h2>Add section view for clarity</h2></div><div class="step-content"><p>Inserted a section view to clarify key Tray 4 features.</p></div></div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">29</div><h2>Export final drawing</h2></div><div class="step-content"><p>Exported the final Tray 4 drawing for documentation.</p></div></div>
+        <div class="gallery-grid">
+            <img src="tray4_main.jpeg" alt="Tray 4 Main Image">
+        </div>
+        <div class="step-card"><div class="step-title orange"><div class="step-num">30</div><h2>Document role: Tray 4 is the smallest drying tray, stacked at the top of the solar dryer</h2></div><div class="step-content"><p>Documented that Tray 4 is the smallest tray and sits at the top of the drying stack.</p></div></div>
+
+        <div class="section-box">
+            <h2>SOLIDWORKS Sheet Metal Tray Design — Complete Workflow (All 4 Images)</h2>
+            <p><strong>What it is &amp; where it's used:</strong> These four images together demonstrate the complete <strong>sheet metal part design workflow in SOLIDWORKS</strong>, used in manufacturing industries to create trays, enclosures, brackets, panels, and metal containers that are cut and folded from flat sheet stock.</p>
+            <ol>
+                <li>The four images collectively show the end-to-end process of designing a sheet metal tray named "Tray 2 60."</li>
+                <li><strong>Image 1</strong> shows the <em>Base-Flange1</em> feature, the foundational first step of any sheet metal part.</li>
+                <li>The Base Flange takes a 2D sketch and gives it a uniform material thickness of 0.26 cm.</li>
+                <li>Its Sheet Metal Parameters define gauge, bend radius, and direction (reverse/symmetric options).</li>
+                <li>The tan/yellow shaded region previews the flat sheet body being created from the sketch.</li>
+                <li>This step establishes the global thickness that all later features will inherit automatically.</li>
+                <li><strong>Image 2</strong> displays the completed part in the FeatureManager Design Tree, listing all features in order.</li>
+                <li>The tree shows key items: Sheet-Metal, Base-Flange1, Edge-Flange1, and a suppressed Flat-Pattern.</li>
+                <li>The "Cut list" and "Flat-Pattern" features are unique to sheet metal parts for fabrication.</li>
+                <li>The gray shaded body confirms the base flange (the tray's bottom floor) built successfully.</li>
+                <li>Material is "not specified" and the part is still "Under Defined," needing more constraints.</li>
+                <li><strong>Image 3</strong> shows the <em>Edge-Flange1</em> feature, which folds the flat edges upward into walls.</li>
+                <li>Multiple edges are selected at once to create all tray sidewalls simultaneously.</li>
+                <li>The flange length is set to "Blind" at 4.00 cm, giving each wall a 4 cm height.</li>
+                <li>The bend angle is 90 degrees, producing perpendicular, box-like walls.</li>
+                <li>The pink/magenta arrows indicate the fold-up direction, and yellow outlines preview the geometry.</li>
+                <li>Bend radius (0.07366 cm) and relief settings ensure the metal bends without cracking in reality.</li>
+                <li>This step transforms the flat panel into a 3D container with depth and usable volume.</li>
+                <li><strong>Image 4</strong> shows the <em>Smart Dimension</em> tool applied to the original base sketch in Top view.</li>
+                <li>Dimensions like 28.01, 14.07, 13.62, and 12.71 cm define the exact tray footprint shape.</li>
+                <li>The PropertyManager controls tolerance, precision (.12), dimension text, and GD&T symbols.</li>
+                <li>Fully dimensioning the sketch removes the "Under Defined" status and locks the geometry.</li>
+                <li>These dimensions are parametric, so changing them updates the entire 3D model instantly.</li>
+                <li>Logically, the workflow flows: dimension sketch (Img 4) → base flange (Img 1) → walls (Img 3) → review (Img 2).</li>
+                <li>The Sketch tab and CommandManager ribbon at the top provide all drawing and sheet metal tools.</li>
+                <li>The triad in the bottom-left corner confirms part orientation in 3D modeling space.</li>
+                <li>The status bar shows useful info: license type, units (CGS), and current editing state.</li>
+                <li>Together these features create a manufacturable tray that can be unfolded into a flat pattern.</li>
+                <li>The flat pattern is critical because it provides the cutting layout for laser/CNC machines.</li>
+                <li>Overall, this set illustrates the core sheet metal principles—uniform thickness, bends, flanges, and parametric dimensioning—used in real-world fabrication and product design.</li>
+            </ol>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="section-box">
+            <h2>Conclusion</h2>
+            <ul>
+                <li>Modeled the Doam Upper Part (Ø 250 mm × 1200 mm) and Circular Base Plate (Ø 1200 mm × 25 mm) as the primary assembly components.</li>
+                <li>Designed the Rod using Thin Extrude with mid-plane option as a stepped structural element.</li>
+                <li>Created Part A as a curved connector with cylindrical protrusion and drilled hole (Ø1.50 × 3.10 cm).</li>
+                <li>Created Part B as a hollow cylindrical pipe (Ø25.00 × 40 cm) with through-hole for assembly integration.</li>
+                <li>Designed the GT2 Pulley (Ø10 mm) with toothed belt groove profile for precision belt-driven motion.</li>
+                <li>Modeled the Pipe/Doam Part (Ø25.00 × 40 cm) as a structural sleeve or airflow channel.</li>
+                <li>Created the Curved Tray Component (Ø109 mm, R12.5 fillet) as a sector-shaped solar dryer tray.</li>
+                <li>Completed the Sheet Metal Tray "Tray 2 60" using Base-Flange and Edge-Flange operations with flat pattern for CNC fabrication.</li>
+            </ul>
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="section-box">
+            <h2>Reflection</h2>
+            <p>
+                This session significantly deepened my proficiency in SolidWorks solid and sheet metal modeling.
+                Working across a diverse set of components — from precision pulleys to large-scale structural pipes and
+                sheet metal trays — taught me how parametric design, proper feature sequencing, and manufacturing-aware
+                annotation together create production-ready engineering documentation.
+            </p>
+        </div>
+
+        <!-- REFERENCES -->
+        <div class="section-box">
+            <h2>References</h2>
+            <ul>
+                <li>SolidWorks Official Help Documentation</li>
+                <li>ChatGPT & Microsoft Copilot</li>
+                <li>Google Search</li>
+                <li>YouTube SolidWorks Tutorials</li>
+            </ul>
+        </div>
+
+        <a href="../../index.html" class="btn">← Back to Portfolio</a>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Nandini Dhonde | Internship Documentation
+    </footer>
+
+</body>
+</html>

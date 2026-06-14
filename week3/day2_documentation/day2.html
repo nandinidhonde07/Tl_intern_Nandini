@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Week 3 Day 2 | Solar Dryer Project Box</title>
+
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+    line-height:1.8;
+}
+
+header{
+    background:linear-gradient(to right,#4c1d95,#7c3aed);
+    padding:70px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+header p{
+    font-size:22px;
+    color:#ddd6fe;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 0;
+}
+
+.intro{
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:50px;
+    box-shadow:0px 0px 20px rgba(124,58,237,0.3);
+}
+
+.intro h2{
+    font-size:38px;
+    margin-bottom:20px;
+    color:#c4b5fd;
+}
+
+.intro p{
+    font-size:20px;
+    color:#e2e8f0;
+}
+
+.step-card{
+    background:#1e293b;
+    margin-bottom:40px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0px 0px 20px rgba(124,58,237,0.2);
+    transition:0.3s;
+}
+
+.step-card:hover{
+    transform:translateY(-5px);
+}
+
+.step-title{
+    background:#7c3aed;
+    padding:22px;
+}
+
+.step-title h2{
+    font-size:30px;
+}
+
+.step-content{
+    padding:30px;
+}
+
+.step-content p{
+    font-size:20px;
+    color:#e2e8f0;
+    margin-bottom:25px;
+}
+
+.step-content img{
+    width:100%;
+    border-radius:15px;
+    border:3px solid #7c3aed;
+    margin-top:15px;
+}
+
+.section-box{
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    margin-top:50px;
+    box-shadow:0px 0px 20px rgba(124,58,237,0.2);
+}
+
+.section-box h2{
+    color:#c4b5fd;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.section-box ul{
+    padding-left:25px;
+}
+
+.section-box li{
+    font-size:20px;
+    margin-bottom:15px;
+    color:#e2e8f0;
+}
+
+.section-box p{
+    font-size:20px;
+    color:#e2e8f0;
+}
+
+.table-box{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#0f172a;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+table th{
+    background:#7c3aed;
+    color:white;
+    padding:18px;
+    font-size:18px;
+    text-align:left;
+}
+
+table td{
+    padding:16px;
+    border:1px solid #334155;
+    color:#e2e8f0;
+    font-size:18px;
+}
+
+table tr:nth-child(even){
+    background:#172033;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:40px;
+    background:#7c3aed;
+    color:white;
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:12px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#6d28d9;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#1e293b;
+    color:#7c3aed;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-size:16px;
+    border:2px solid #7c3aed;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#7c3aed;
+    color:white;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+    margin-top:60px;
+    color:#94a3b8;
+}
+
+.section-box h3{
+    color:#ddd6fe;
+    font-size:26px;
+    margin-top:20px;
+    margin-bottom:12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Week 3 - Day 2</h1>
+
+        <p>Solar Dryer Project Box Design & 3D Printing</p>
+
+        <a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+
+    </header>
+
+    <div class="container">
+
+        <div class="intro">
+
+            <h2>Introduction</h2>
+
+            <p>
+                On Week 3 Day 2, I designed a custom enclosure for the Solar Dryer
+                Project using Autodesk Fusion 360 and prepared it for fabrication
+                using a Bamboo 3D Printer. The enclosure was designed to house
+                ESP32, DHT11, and L298N modules while providing sufficient space,
+                airflow, and mounting provisions. The process involved sketching,
+                extrusion, offsets, screw hole creation, exporting, and finally
+                3D printing the completed model.
+            </p>
+
+        </div>
+
+        <!-- STEP 1 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 1: Open Fusion & Start New Design</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Launched Autodesk Fusion 360, created a new design file,
+                    and entered Sketch mode to begin modeling the enclosure.
+                </p>
+
+                <img src="img1_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 2: Select Top Plane</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Selected the Top Plane near the origin as the base
+                    construction plane for the box design.
+                </p>
+
+                <img src="img2_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 3: Draw Rectangle</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Used the Two-Point Rectangle tool to create the
+                    outer profile of the solar dryer enclosure.
+                </p>
+
+                <img src="img3_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 4: Set Dimensions</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Applied precise dimensions of 155 mm × 100 mm
+                    to define the size of the enclosure.
+                </p>
+
+                <img src="img4_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 5 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 5: Add Rounded Corners</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Applied a 5 mm fillet to all corners to improve
+                    strength, safety, and overall appearance.
+                </p>
+
+                <img src="img5_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 6 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 6: Extrude Base</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Extruded the rectangle sketch to a thickness
+                    of 3 mm, creating the base of the enclosure.
+                </p>
+
+                <img src="img6_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 7 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 7: Create New Sketch</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Started a new sketch on the top face of the
+                    extruded base to create the wall structure.
+                </p>
+
+                <img src="img7_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 8 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 8: Apply Offset</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Used the Offset tool with a distance of
+                    -3 mm to create the wall profile.
+                </p>
+
+                <img src="img8_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 9 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 9: Extrude Offset Section</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Extruded the offset profile upward by
+                    40 mm to form the enclosure walls.
+                </p>
+
+                <img src="img9_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 10 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 10: Add Screw Fitting Circles</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Created mounting holes using center diameter circles.
+                    Inner diameter was 4 mm and outer diameter was 6 mm.
+                </p>
+
+                <img src="img10_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 11 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 11: Save File</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Saved the design regularly to prevent
+                    accidental loss of work.
+                </p>
+
+                <img src="img11_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 12 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 12: Export Design</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Used the Export option in Fusion 360
+                    to prepare the file for printing.
+                </p>
+
+                <img src="img12_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 13 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 13: Name & File Type</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Named the file "solar dryer box" and selected
+                    Autodesk Fusion Archive (.f3d) format.
+                </p>
+
+                <img src="img13_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 14 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 14: Open in Bamboo Printer</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Imported the design into Bamboo Studio,
+                    selected PLA filament, 0.2 mm layer height,
+                    and 20% infill settings.
+                </p>
+
+                <img src="img14_d2_w3.png">
+
+            </div>
+
+        </div>
+
+        <!-- STEP 15 -->
+
+        <div class="step-card">
+
+            <div class="step-title">
+                <h2>Step 15: Final Result</h2>
+            </div>
+
+            <div class="step-content">
+
+                <p>
+                    Successfully printed the enclosure. The final
+                    box included screw holes and was ready for
+                    installing ESP32, DHT11, and L298N modules.
+                </p>
+
+                <img src="img15_d2_w3.png">
+
+            </div>
+
+        </div>
+        <!-- SYSTEM INTEGRATION -->
+
+<div class="section-box">
+
+    <h2>System Integration</h2>
+
+    <h3>1. Block Diagram</h3>
+
+    <ul>
+        <li>ESP32 acts as the central controller of the Solar Dryer System.</li>
+        <li>DHT11 → ESP32 (Temperature & Humidity Sensor Input)</li>
+        <li>ESP32 → Relay Module (Heater Control)</li>
+        <li>ESP32 → L298N Motor Driver (Fan Control)</li>
+        <li>ESP32 → LED Matrix Display (System Status & Sensor Readings)</li>
+        <li>LM2596 Buck Converter → ESP32 and all modules (Regulated Power Supply)</li>
+    </ul>
+
+    <h3>2. Power Flow</h3>
+
+    <ul>
+        <li>Solar Panel / Battery → LM2596 Buck Converter</li>
+        <li>LM2596 → ESP32</li>
+        <li>LM2596 → Relay Module</li>
+        <li>LM2596 → L298N Motor Driver</li>
+        <li>LM2596 → LED Matrix Display</li>
+    </ul>
+
+    <h3>3. Signal Flow</h3>
+
+    <ul>
+        <li>DHT11 sends temperature and humidity data to ESP32.</li>
+        <li>ESP32 processes environmental data.</li>
+        <li>ESP32 controls Relay Module for heater operation.</li>
+        <li>ESP32 controls L298N Motor Driver for fan operation.</li>
+        <li>ESP32 updates LED Matrix with system status and readings.</li>
+    </ul>
+
+</div>
+
+<!-- LOGIC FLOW -->
+
+<div class="section-box">
+
+    <h2>Logic Flow Programming</h2>
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Condition</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>Humidity > 70%</td>
+                <td>Fan ON</td>
+            </tr>
+
+            <tr>
+                <td>Temperature < 35°C</td>
+                <td>Heater ON</td>
+            </tr>
+
+            <tr>
+                <td>Temperature 35°C - 45°C</td>
+                <td>Normal Operation</td>
+            </tr>
+
+            <tr>
+                <td>Temperature > 45°C</td>
+                <td>Heater OFF & Fan OFF</td>
+            </tr>
+
+            <tr>
+                <td>System Running</td>
+                <td>LED Matrix Displays TEMP and HUM Values</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- PERFBOARD LAYOUT -->
+
+<div class="section-box">
+
+    <h2>Perfboard Layout</h2>
+
+    <ul>
+
+        <li><strong>ESP32:</strong> Center-right position for efficient GPIO routing.</li>
+
+        <li><strong>L298N Driver:</strong> Top-center position near fan wiring.</li>
+
+        <li><strong>Relay Module:</strong> Far-right edge for safer switching connections.</li>
+
+        <li><strong>LM2596 Buck Converter:</strong> Bottom-left position near power input.</li>
+
+        <li><strong>DHT11 Sensor:</strong> Connected to ESP32 for environmental monitoring.</li>
+
+        <li><strong>LED Matrix:</strong> Connected for displaying temperature, humidity and alerts.</li>
+
+    </ul>
+
+</div>
+
+<!-- WIRING COLOR CODE -->
+
+<div class="section-box">
+
+    <h2>Wiring Color Code</h2>
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Wire Color</th>
+                <th>Purpose</th>
+            </tr>
+
+            <tr>
+                <td>Red</td>
+                <td>VCC / Power Supply</td>
+            </tr>
+
+            <tr>
+                <td>Black</td>
+                <td>Ground (GND)</td>
+            </tr>
+
+            <tr>
+                <td>Green</td>
+                <td>Sensor Signal Lines</td>
+            </tr>
+
+            <tr>
+                <td>Brown / Blue</td>
+                <td>Control Signals between ESP32 and Modules</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- SOLDERING NOTES -->
+
+<div class="section-box">
+
+    <h2>Soldering Notes</h2>
+
+    <ul>
+
+        <li>Underside pads were soldered neatly to create permanent electrical connections.</li>
+
+        <li>Short and direct traces were used to reduce resistance and electrical noise.</li>
+
+        <li>Clean solder joints prevented short circuits and improved reliability.</li>
+
+        <li>Power and signal wires were routed separately.</li>
+
+        <li>Modules were positioned to simplify maintenance and troubleshooting.</li>
+
+    </ul>
+
+</div>
+<!-- STEP 16 -->
+
+<div class="step-card">
+
+    <div class="step-title">
+        <h2>Step 16: Electronics Assembly and Wiring</h2>
+    </div>
+
+    <div class="step-content">
+
+        <p>
+            The ESP32, DHT11 sensor, Relay Module, L298N Motor Driver,
+            LM2596 Buck Converter, and LED Matrix Display were mounted on
+            the sensor plate and interconnected according to the circuit
+            design. Organized wiring and soldered connections were used to
+            improve reliability and simplify troubleshooting. The completed
+            assembly formed the central control unit of the Solar Dryer
+            Project.
+        </p>
+
+        <img src="img24_d2_w3.png" alt="Electronics Mounted and Wired">
+
+    </div>
+
+</div>
+
+        <!-- OUTCOME -->
+
+        <div class="section-box">
+
+            <h2>Outcome</h2>
+
+            <ul>
+
+                <li>Designed a Solar Dryer Project Box using Autodesk Fusion 360.</li>
+
+                <li>Applied dimensions, fillets, offsets, and screw hole features.</li>
+
+                <li>Exported the design in Fusion Archive format.</li>
+
+                <li>Prepared STL and slicing settings for 3D printing.</li>
+
+                <li>Successfully fabricated the enclosure using a Bamboo Printer.</li>
+
+                <li>Created a housing solution for ESP32, DHT11, and L298N modules.</li>
+
+            </ul>
+
+        </div>
+
+        <!-- CONCLUSION -->
+
+        <div class="section-box">
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Day 2 of Week 3 provided practical experience in CAD modeling,
+                design optimization, and additive manufacturing. By designing
+                and printing a custom enclosure, I learned how engineering
+                designs move from digital models to physical products. The
+                completed enclosure serves as an important component of the
+                Solar Dryer Project and demonstrates the integration of
+                design, fabrication, and embedded systems.
+            </p>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        © 2026 Nandini Dhonde | Internship Documentation
+
+    </footer>
+
+</body>
+
+</html>
